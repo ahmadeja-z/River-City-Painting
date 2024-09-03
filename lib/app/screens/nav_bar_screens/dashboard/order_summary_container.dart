@@ -1,0 +1,283 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:painting/app/resources/app_colors/app_colors.dart';
+import 'package:painting/app/resources/assets/app_fonts.dart';
+
+import '../../../screens_model/controllers/nav_screens/dashboard_controller.dart';
+
+class OrderSummaryContainer extends StatefulWidget {
+  const OrderSummaryContainer({super.key});
+
+  @override
+  State<OrderSummaryContainer> createState() => _OrderSummaryContainerState();
+}
+
+class _OrderSummaryContainerState extends State<OrderSummaryContainer> with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+  final DashboardController dashboardController = Get.put(DashboardController());
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this);
+    _tabController.addListener(() {
+      dashboardController.changeTabIndex(_tabController.index);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(15),
+      height: Get.height * 0.4,
+      width: Get.width * .94,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 4,
+            blurRadius: 6,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const Text(
+                'Orders Summary',
+                style: TextStyle(
+                  fontFamily: AppFonts.robotoRegular,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(width: Get.width * 0.07),
+              TabBar(
+                labelStyle: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: AppFonts.robotoRegular,
+                ),
+                controller: _tabController,
+                dividerHeight: 0,
+                labelPadding: const EdgeInsets.only(right: 5, left: 10),
+                tabAlignment: TabAlignment.start,
+                labelColor: AppColors.primaryRed,
+                unselectedLabelColor: Colors.black54,
+                indicatorColor: AppColors.primaryRed,
+                indicatorWeight: 3.0,
+                isScrollable: true,
+                tabs: const [
+                  Tab(text: 'Monthly'),
+                  Tab(text: 'Weekly'),
+                  Tab(text: 'Today'),
+                ],
+              ),
+            ],
+          ),
+          const Divider(height: 1,),
+          SizedBox(height: Get.height * 0.02),
+
+          const Text(
+            'Lorem ipsum dolor sit amet, consectetur',
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: Color(0xFF2A2B43),
+              fontFamily: AppFonts.robotoRegular,
+            ),
+          ),
+          SizedBox(height: Get.height * 0.02),
+          Expanded(
+            child: Obx(() {
+              return TabBarView(
+                controller: _tabController,
+                children: [
+                  _buildOrderSummaryContent(
+                    dashboardController.monthlyPercent.value,
+                    dashboardController.monthlyAmount.value,
+                    dashboardController.monthlySubText.value,
+                    dashboardController.monthlyApproved.value,
+                    dashboardController.monthlyPending.value,
+                    dashboardController.monthlyCanceled.value,
+                        () {},
+                  ),
+                  _buildOrderSummaryContent(
+                    dashboardController.weeklyPercent.value,
+                    dashboardController.weeklyAmount.value,
+                    dashboardController.weeklySubText.value,
+                    dashboardController.weeklyApproved.value,
+                    dashboardController.weeklyPending.value,
+                    dashboardController.weeklyCanceled.value,
+                        () {},
+                  ),
+                  _buildOrderSummaryContent(
+                    dashboardController.todayPercent.value,
+                    dashboardController.todayAmount.value,
+                    dashboardController.todaySubText.value,
+                    dashboardController.todayApproved.value,
+                    dashboardController.todayPending.value,
+                    dashboardController.todayCanceled.value,
+                        () {},
+                  ),
+                ],
+              );
+            }),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildOrderSummaryContent(
+      double percent,
+      double amount,
+      double subText,
+      int approved,
+      int pending,
+      int cancel,
+      VoidCallback seeMoreAction,
+      ) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            CircularPercentIndicator(
+              radius: 60.0,
+              lineWidth: 16.0,
+              percent: percent,
+              animation: true,
+              animationDuration: 1200,
+              center: Text(
+                "${(percent * 100).toStringAsFixed(0)}%",
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20.0,
+                  color: Colors.black,
+                ),
+              ),
+              circularStrokeCap: CircularStrokeCap.round,
+              backgroundColor: Colors.grey.shade300,
+              progressColor: AppColors.primaryRed,
+              startAngle: 180.0,
+              arcType: ArcType.values[1],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  '\$$amount',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: AppFonts.robotoRegular,
+                  ),
+                ),
+                Text(
+                  'from \$$subText',
+                  style: const TextStyle(
+                    fontSize: 13,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: AppFonts.robotoRegular,
+                  ),
+                ),
+                SizedBox(height: Get.height * 0.007),
+                const Text(
+                  'Lorem ipsum dolor sit amet,\n consectetur adipiscing elit, sed do',
+                  style: TextStyle(
+                    fontFamily: AppFonts.robotoRegular,
+                    fontSize: 10,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.grey,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: Get.height * 0.01),
+                _buttonContainer('See More', seeMoreAction),
+              ],
+            ),
+          ],
+        ),
+        SizedBox(height: Get.height * 0.02),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _infoTile(approved, 'Approved'),
+            _infoTile(pending, 'Pending'),
+            _infoTile(cancel, 'Canceled'),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buttonContainer(String title, VoidCallback onTap) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: Get.height * 0.04,
+        width: Get.width * 0.25,
+        decoration: BoxDecoration(
+          color: Colors.red.withOpacity(.2),
+          borderRadius: BorderRadius.circular(50),
+        ),
+        child: Center(
+          child: Text(
+            title,
+            style: const TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+              fontFamily: 'Roboto',
+              color: AppColors.primaryRed,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _infoTile(int value, String status) {
+    return Container(
+      padding: const EdgeInsets.all(5),
+      height: Get.height * 0.07,
+      width: Get.width * 0.26,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.grey.withOpacity(.6),
+        ),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Center(
+        child: Column(
+          children: [
+            Text(
+              value.toString(),
+              style: const TextStyle(
+                fontFamily: AppFonts.robotoRegular,
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
+              ),
+            ),
+            Text(
+              status,
+              style: const TextStyle(
+                fontFamily: AppFonts.robotoRegular,
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

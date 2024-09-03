@@ -4,7 +4,16 @@ class Assets {
 
   static const String fontsInter24ptRegular = 'assets/fonts/Inter_24pt-Regular.ttf';
   static const String fontsPoppinsRegular = 'assets/fonts/Poppins-Regular.ttf';
+  static const String fontsRobotoRegular = 'assets/fonts/roboto-regular.ttf';
   static const String iconsEyeClose = 'assets/icons/eye_close.png';
+  static const String iconsInfo1 = 'assets/icons/info1.png';
+  static const String iconsInfo2 = 'assets/icons/info2.png';
+  static const String iconsInfo3 = 'assets/icons/info3.png';
+  static const String iconsInfo4 = 'assets/icons/info4.png';
+  static const String iconsTabMenu1 = 'assets/icons/tabMenu1.png';
+  static const String iconsTabMenu2 = 'assets/icons/tabMenu2.png';
+  static const String iconsTabMenu3 = 'assets/icons/tabMenu3.png';
+  static const String iconsTabMenu4 = 'assets/icons/tabMenu4.png';
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesLowerCorner = 'assets/images/lower_corner.png';
   static const String imagesUpperCorner = 'assets/images/upper_corner.png';
