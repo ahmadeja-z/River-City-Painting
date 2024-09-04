@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:painting/app/resources/assets/app_images.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/custom_app_bar.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/custom_nav_bar.dart';
-import 'package:painting/app/screens_model/controllers/nav_screens/nav_bar_controller.dart';
 
 import '../../resources/app_colors/app_colors.dart';
 import '../../resources/assets/app_fonts.dart';
+import '../../screens_model/controllers/nav_screens_controller/nav_bar_controller.dart';
+import 'customers/customer_view.dart';
 import 'dashboard/dashboard_view.dart';
 
 class NavBarScreen extends StatelessWidget {
@@ -19,7 +21,7 @@ class NavBarScreen extends StatelessWidget {
   ];
   static const List<Widget> pages = <Widget>[
     DashboardView(),
-    Center(child: Text('Customers', style: TextStyle(fontSize: 24))),
+    CustomersView(),
     Center(child: Text('Estimates', style: TextStyle(fontSize: 24))),
     Center(child: Text('Profile', style: TextStyle(fontSize: 24))),
   ];
@@ -39,6 +41,17 @@ class NavBarScreen extends StatelessWidget {
             ),
           ),
         ),
+        trailing: Obx(() {
+          return pages.elementAt(navBarController.selectedIndex.value)==pages[0]?CircleAvatar(
+            backgroundImage:AssetImage(AppImages.profileAvatar),
+          ):SizedBox.shrink();
+        },),
+        leading: Obx(() {
+          return pages.elementAt(navBarController.selectedIndex.value)==pages[0]?GestureDetector(onTap: (){},
+            child: Icon(Icons.add),):SizedBox.shrink();
+        },
+        
+        )
       ),
       body: Stack(
         children: [

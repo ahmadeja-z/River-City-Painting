@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:painting/app/resources/app_colors/app_colors.dart';
 import 'package:painting/app/resources/languages/languages.dart';
-import 'package:painting/app/resources/routes/app_routes.dart';
-
-import 'app/practise.dart';
-import 'app/screens/nav_bar_screens/dashboard/dashboard_view.dart';
+import 'app/screens/nav_bar_screens/dashboard/schedules_view.dart';
 import 'app/screens/nav_bar_screens/nav_bar_screen.dart';
 
 void main() {
@@ -23,8 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'River City Painting',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryRed),
       ),
 locale:const Locale('en','US') ,
 translations: Languages(),

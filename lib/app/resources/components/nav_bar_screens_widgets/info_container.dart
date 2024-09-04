@@ -23,12 +23,12 @@ class InfoContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white, // Adjust background color if needed
         borderRadius: BorderRadius.circular(8), // Rounded corners
-        boxShadow: [
+        boxShadow: const[
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.black12,
             spreadRadius: 3,
             blurRadius: 6,
-            offset: const Offset(0, 3), // Shadow position
+            offset:  Offset(0, 3), // Shadow position
           ),
         ],
       ),

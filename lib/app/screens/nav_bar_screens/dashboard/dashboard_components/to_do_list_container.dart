@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
-import 'package:painting/app/screens_model/controllers/nav_screens/dashboard_controller.dart';
-import '../../../resources/app_colors/app_colors.dart';
+import '../../../../resources/app_colors/app_colors.dart';
+import '../../../../screens_model/controllers/nav_screens_controller/dashboard_controller.dart';
 
 class ToDoListContainer extends StatelessWidget {
   final DashboardController controller = Get.put(DashboardController());
@@ -21,12 +21,12 @@ class ToDoListContainer extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: Colors.white,
-          boxShadow: [
+          boxShadow: const[
             BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
+              color: Colors.black12,
               spreadRadius: 4,
               blurRadius: 6,
-              offset: const Offset(0, 3),
+              offset:  Offset(0, 3),
             ),
           ],
         ),

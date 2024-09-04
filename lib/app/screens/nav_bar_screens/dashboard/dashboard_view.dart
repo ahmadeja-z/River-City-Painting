@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/info_container.dart';
-import 'package:painting/app/screens/nav_bar_screens/dashboard/to_do_list_container.dart';
-import 'package:painting/app/screens_model/controllers/nav_screens/dashboard_controller.dart';
+import 'package:painting/app/screens/nav_bar_screens/dashboard/dashboard_components/to_do_list_container.dart';
+import 'package:painting/app/screens/nav_bar_screens/dashboard/schedules_view.dart';
 import '../../../resources/assets/app_icons.dart';
-import 'order_container.dart';
-import 'order_summary_container.dart';
+import '../../../screens_model/controllers/nav_screens_controller/dashboard_controller.dart';
+import 'dashboard_components/order_container.dart';
+import 'dashboard_components/order_summary_container.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({super.key});
@@ -66,8 +67,27 @@ class DashboardView extends StatelessWidget {
             ),
             ToDoListContainer(),
             SizedBox(
-              height: Get.height * 0.2,
+              height: Get.height * 0.02,
             ),
+           Container(
+             padding: const EdgeInsets.all(15),
+             height: Get.height * 0.5,
+             width: Get.width * 0.94,
+             decoration: BoxDecoration(
+               borderRadius: BorderRadius.circular(12),
+               color: Colors.white,
+               boxShadow: const[
+                 BoxShadow(
+                   color: Colors.black12,
+                   spreadRadius: 4,
+                   blurRadius: 6,
+                   offset:  Offset(0, 3),
+                 ),
+               ],
+             ),
+             child:  SchedulesView(),
+           ),
+            SizedBox(height: 200,)
           ],
         ),
       ),

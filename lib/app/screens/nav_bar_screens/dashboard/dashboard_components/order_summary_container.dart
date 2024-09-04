@@ -4,7 +4,8 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:painting/app/resources/app_colors/app_colors.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
 
-import '../../../screens_model/controllers/nav_screens/dashboard_controller.dart';
+import '../../../../screens_model/controllers/nav_screens_controller/dashboard_controller.dart';
+
 
 class OrderSummaryContainer extends StatefulWidget {
   const OrderSummaryContainer({super.key});
@@ -35,12 +36,12 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: Colors.white,
-        boxShadow: [
+        boxShadow: const[
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.black12,
             spreadRadius: 4,
             blurRadius: 6,
-            offset: const Offset(0, 3),
+            offset:  Offset(0, 3),
           ),
         ],
       ),

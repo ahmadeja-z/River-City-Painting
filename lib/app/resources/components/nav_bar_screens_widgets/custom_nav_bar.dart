@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 import 'package:painting/app/resources/app_colors/app_colors.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
 import 'package:painting/app/resources/assets/app_icons.dart';
-import 'package:painting/app/screens_model/controllers/nav_screens/nav_bar_controller.dart';
+
+import '../../../screens_model/controllers/nav_screens_controller/nav_bar_controller.dart';
 
 class NavBar extends StatelessWidget {
   NavBar({super.key});

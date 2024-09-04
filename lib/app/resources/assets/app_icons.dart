@@ -8,5 +8,6 @@ class AppIcons{
   static const String info2='assets/icons/info2.png';
   static const String info3='assets/icons/info3.png';
   static const String info4='assets/icons/info4.png';
+  static const String drawerIcon='assets/icons/drawerIcon.png';
 
 }

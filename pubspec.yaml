@@ -90,6 +90,10 @@ flutter:
     - family: Roboto
       fonts:
         - asset: assets/fonts/roboto-regular.ttf
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.ttf
+
 
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
