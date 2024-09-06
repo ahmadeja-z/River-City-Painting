@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/info_container.dart';
 import 'package:painting/app/screens/nav_bar_screens/dashboard/dashboard_components/to_do_list_container.dart';
-import 'package:painting/app/screens/nav_bar_screens/dashboard/schedules_view.dart';
+import 'package:painting/app/screens/nav_bar_screens/dashboard/dashboard_components/schedules_container.dart';
 import '../../../resources/assets/app_icons.dart';
 import '../../../screens_model/controllers/nav_screens_controller/dashboard_controller.dart';
 import 'dashboard_components/order_container.dart';

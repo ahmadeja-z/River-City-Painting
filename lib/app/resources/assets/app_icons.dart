@@ -9,5 +9,8 @@ class AppIcons{
   static const String info3='assets/icons/info3.png';
   static const String info4='assets/icons/info4.png';
   static const String drawerIcon='assets/icons/drawerIcon.png';
+  static const String menuDot='assets/icons/menu_dot.png';
+  static const String addIcon='assets/icons/add.png';
+  static const String editIcon='assets/icons/edit.png';
 
 }

@@ -37,16 +37,19 @@ class CustomersView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: Get.height*0.02,),
+          SizedBox(
+            height: Get.height * 0.02,
+          ),
           SearchTextField(
             textController: TextEditingController(),
             onChanged: (value) => controller.filterCustomers(value),
             hintText: 'Search Customer by Name...',
           ),
           SizedBox(height: Get.height * 0.02),
-          Expanded( // This makes the ListView scrollable
+          Expanded(
+            // This makes the ListView scrollable
             child: Obx(
-                  () {
+              () {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: ListView.builder(
@@ -74,7 +77,8 @@ class CustomersView extends StatelessWidget {
                               content: const Text(
                                   'Are you sure you want to delete this Customer?'),
                               confirm: Padding(
-                                padding: const EdgeInsets.only(top: 7, left: 40),
+                                padding:
+                                    const EdgeInsets.only(top: 7, left: 40),
                                 child: GestureDetector(
                                   onTap: () {
                                     controller.deleteCustomer(customer);

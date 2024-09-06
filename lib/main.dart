@@ -3,7 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:painting/app/resources/app_colors/app_colors.dart';
 import 'package:painting/app/resources/languages/languages.dart';
-import 'app/screens/nav_bar_screens/dashboard/schedules_view.dart';
+import 'package:painting/app/screens/splash_screen.dart';
+import 'app/resources/routes/app_routes.dart';
 import 'app/screens/nav_bar_screens/nav_bar_screen.dart';
 
 void main() {
@@ -25,8 +26,8 @@ class MyApp extends StatelessWidget {
       ),
 locale:const Locale('en','US') ,
 translations: Languages(),
-home: NavBarScreen(),
-//       getPages: AppRoutes.appRoute(),
+// home: SplashScreen ()
+      getPages: AppRoutes.appRoute(),
     );
   }
 }

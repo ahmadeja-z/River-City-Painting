@@ -9,6 +9,7 @@ import 'package:painting/app/resources/routes/routes_name.dart';
 
 import '../../resources/app_colors/app_colors.dart';
 import '../../screens_model/controllers/authentication_controllers/login_screen_controller.dart';
+import '../nav_bar_screens/nav_bar_screen.dart';
 
 class LoginScreen extends StatefulWidget {
  const LoginScreen({super.key});
@@ -79,6 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
             CustomizedButton(
               onPress: (){
                 loginController.checkController();
+                Get.to(NavBarScreen());
               },
               title: 'Login',
 
