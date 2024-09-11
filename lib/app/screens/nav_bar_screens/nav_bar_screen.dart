@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:painting/app/resources/assets/app_images.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/custom_app_bar.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/custom_nav_bar.dart';
-import 'package:painting/app/screens/nav_bar_screens/customers/add_customers_view.dart';
+import 'package:painting/app/screens/nav_bar_screens/customers/add_customers_screen.dart';
 import 'package:painting/app/screens/nav_bar_screens/estimates/add_estimates.dart';
 import '../../resources/app_colors/app_colors.dart';
 import '../../resources/assets/app_fonts.dart';
@@ -54,7 +54,7 @@ class NavBarScreen extends StatelessWidget {
                           pages[1]
                       ? IconButton(
                           onPressed: () {
-                            Get.to(const AddCustomersView());
+                            Get.to(const AddCustomers());
                           },
                           icon: const Icon(
                             CupertinoIcons.add,

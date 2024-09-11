@@ -87,7 +87,7 @@ class DashboardView extends StatelessWidget {
              ),
              child:  SchedulesView(),
            ),
-            SizedBox(height: 200,)
+            SizedBox(height: Get.height*0.15)
           ],
         ),
       ),

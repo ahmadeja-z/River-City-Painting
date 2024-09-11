@@ -10,8 +10,8 @@ import 'package:painting/app/screens_model/controllers/nav_screens_controller/cu
 import '../../../resources/app_colors/app_colors.dart';
 import '../../../resources/components/nav_bar_screens_widgets/custom_app_bar.dart';
 
-class AddCustomersView extends StatelessWidget {
-  const AddCustomersView({super.key});
+class AddCustomers extends StatelessWidget {
+  const AddCustomers({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -13,45 +13,41 @@ class SchedulesView extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(SchedulesController());
 
-    return SizedBox(
-      height: 400, // Adjust height as needed
-      width: Get.width * 0.9, // Adjust width as needed
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text('Schedules',style: TextStyle(fontWeight: FontWeight.bold,fontFamily: AppFonts.poppinsRegular,fontSize: 22,color: AppColors.primaryRed),),
-            const Divider(),
-            SizedBox(height: Get.height*0.02,),
-            SearchTextField(
-              textController: TextEditingController(),
-              onChanged: (value) => controller.filterSchedules(value), // Call the correct method
-              hintText: 'Search Customer...',
-            ),
-            SizedBox(height: Get.height * 0.02),
-            Expanded(
-              child: Obx(() {
-                return Scrollbar(
-                  child: ListView.builder(
-                    itemCount: controller.filteredNames.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 7),
-                        child: ScheduleTile(
-                          title: controller.filteredNames[index],
-                          address: controller.filteredAddresses[index],
-                          schedule: controller.filteredSchedulers[index],
-                          scheduleId: controller.filteredSchedulerIds[index],
-                          date: controller.filteredDates[index],
-                        ),
-                      );
-                    },
-                  ),
-                );
-              }),
-            ),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('Schedules',style: TextStyle(fontWeight: FontWeight.bold,fontFamily: AppFonts.poppinsRegular,fontSize: 22,color: AppColors.primaryRed),),
+          const Divider(),
+          SizedBox(height: Get.height*0.02,),
+          SearchTextField(
+            textController: TextEditingController(),
+            onChanged: (value) => controller.filterSchedules(value), // Call the correct method
+            hintText: 'Search Customer...',
+          ),
+          SizedBox(height: Get.height * 0.02),
+          Expanded(
+            child: Obx(() {
+              return Scrollbar(
+                child: ListView.builder(
+                  itemCount: controller.filteredNames.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 7),
+                      child: ScheduleTile(
+                        title: controller.filteredNames[index],
+                        address: controller.filteredAddresses[index],
+                        schedule: controller.filteredSchedulers[index],
+                        scheduleId: controller.filteredSchedulerIds[index],
+                        date: controller.filteredDates[index],
+                      ),
+                    );
+                  },
+                ),
+              );
+            }),
+          ),
+        ],
       ),
     );
   }

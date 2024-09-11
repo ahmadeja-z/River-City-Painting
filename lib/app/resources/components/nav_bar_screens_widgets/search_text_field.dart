@@ -25,7 +25,7 @@ class SearchTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           boxShadow: const [
             BoxShadow(
-                color: Colors.grey,
+                color: Colors.black26,
                 spreadRadius: 2,
                 blurRadius: 2,
                 offset: Offset(1, 3))

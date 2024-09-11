@@ -31,7 +31,8 @@ class NavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.transparent,
-      height: 108, // Adjust height to accommodate the selected icon's elevation
+      height: Get.height * 0.135,
+
       child: Stack(
         children: [
           Positioned(
@@ -39,7 +40,7 @@ class NavBar extends StatelessWidget {
             left: 0,
             right: 0,
             child: Container(
-              height: 60,
+              height: Get.height * 0.075,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                 color: AppColors.primaryRed,
@@ -54,7 +55,7 @@ class NavBar extends StatelessWidget {
                         _navController.changeIndex(index);
                       },
                       child: isSelected
-                          ? Container(width: 65)
+                          ? Container(width: Get.width * 0.16)
                           : AnimatedSwitcher(
                         duration: const Duration(),
                         child: navIcons[index],
@@ -78,8 +79,8 @@ class NavBar extends StatelessWidget {
                       children: [
                         AnimatedContainer(
                           duration: const Duration(milliseconds: 300),
-                          height: 65,
-                          width: 65,
+                          height: Get.height * 0.075,
+                          width: Get.width * 0.16,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             shape: BoxShape.circle,

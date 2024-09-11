@@ -6,8 +6,8 @@ import 'package:painting/app/resources/components/nav_bar_screens_widgets/estima
 
 import '../../../../resources/app_colors/app_colors.dart';
 
-class ActionsEstimatesInfo extends StatelessWidget {
-  const ActionsEstimatesInfo({super.key});
+class ActionsInfoEstimatesView extends StatelessWidget {
+  const ActionsInfoEstimatesView({super.key});
 
   @override
   Widget build(BuildContext context) {
