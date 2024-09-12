@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
 
 
@@ -22,8 +23,8 @@ class CustomInfoTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 52,
-      width: 390,
+      height: Get.height*0.07,
+      width: Get.width*0.8,
       child: Card(
         elevation: 3,
         child: TextField(

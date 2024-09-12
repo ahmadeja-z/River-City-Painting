@@ -18,7 +18,6 @@ class FilesControllerEstimates extends GetxController {
 
       if (result != null && result.files.isNotEmpty) {
         pickedFile.value = File(result.files.single.path!);
-        Utils.showSnackBar('File', 'File successfully selected');
       } else {
         Utils.showErrorSnackBar('Invalid Credentials', 'No file selected');
       }
@@ -43,7 +42,8 @@ class FilesControllerEstimates extends GetxController {
           width: Get.width * 0.8, // Responsive width
           height: Get.height * 0.05, // Responsive height
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(Get.width * 0.02), // Responsive border radius
+            borderRadius: BorderRadius.circular(
+                Get.width * 0.02), // Responsive border radius
             border: Border.all(color: Colors.black),
           ),
           child: Row(
@@ -60,8 +60,10 @@ class FilesControllerEstimates extends GetxController {
                     decoration: BoxDecoration(
                       color: AppColors.primaryRed,
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(Get.width * 0.02), // Responsive border radius
-                        bottomLeft: Radius.circular(Get.width * 0.02), // Responsive border radius
+                        topLeft: Radius.circular(
+                            Get.width * 0.02), // Responsive border radius
+                        bottomLeft: Radius.circular(
+                            Get.width * 0.02), // Responsive border radius
                       ),
                     ),
                     child: Center(
@@ -79,7 +81,7 @@ class FilesControllerEstimates extends GetxController {
               ),
               Expanded(
                 child: Obx(
-                      () => Text(
+                  () => Text(
                     pickedFile.value != null
                         ? pickedFile.value!.path.split('/').last
                         : 'No File Chosen',
@@ -104,10 +106,14 @@ class FilesControllerEstimates extends GetxController {
             title: 'Save',
             onTap: () {
               if (pickedFile.value != null) {
-                filesList.add(pickedFile.value!.path); // Add file path to list
+                filesList.add(pickedFile.value!.path);
+                Get.back();
+                Utils.showSnackBar('Success', 'File uploaded successfully ');
                 print('Files List: $filesList'); // Log the updated filesList
+              } else {
+                Utils.showErrorSnackBar(
+                    'Warning', 'The upload file is required');
               }
-              Get.back();
             },
             color: AppColors.primaryRed,
             textColor: Colors.white,

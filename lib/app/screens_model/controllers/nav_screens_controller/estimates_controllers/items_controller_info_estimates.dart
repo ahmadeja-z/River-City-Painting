@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
@@ -44,6 +45,7 @@ class ItemsControllerEstimates extends GetxController {
       'Exterior Brick Prime and Paint Exterior Brick',
       'Exterior Trim Paint Exterior Trim in color of customer\'s choice',
     ],
+    'Labour':[],
     'New Exterior Painting': [
       'Exterior Body Siding Rough Paint Exterior Body Siding Rough',
       'Exterior Siding Smooth Paint Exterior Siding Smooth',
@@ -202,7 +204,7 @@ class ItemsControllerEstimates extends GetxController {
     itemCount.value = 1; // Reset item count
   }
 
-  Future<void> showCombinedDialog() async {
+  Future<void> showSubOptionsDialog() async {
     await Get.dialog(
       AlertDialog(
         title: Text(
@@ -290,8 +292,6 @@ class ItemsControllerEstimates extends GetxController {
   }
 
   Future<void> showDropdownMenu(BuildContext context) async {
-
-    // Initialize the filtered options with the full list.
     initializeOptions(itemOptions.cast<String, String>());
 
     String? selected = await showMenu<String>(
@@ -303,7 +303,7 @@ class ItemsControllerEstimates extends GetxController {
       color: Colors.white,
       position: RelativeRect.fromLTRB(
         Get.width * 0.2,
-        Get.height * 0.1,
+        Get.height * 0.3,
         Get.width * 0.2,
         Get.height * 0.1,
       ),
@@ -312,28 +312,37 @@ class ItemsControllerEstimates extends GetxController {
           enabled: false, // Disable the search field to avoid it being selectable.
           child: Column(
             children: [
-              TextField(
-                decoration: const InputDecoration(
-                  hintText: 'Search...',
-                  border: OutlineInputBorder(),
+              SizedBox(height: Get.height*0.05,
+                child: TextField(
+
+                  decoration: const InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(vertical: 10),
+                    hintText: 'Search...',
+                    prefixIcon: Icon(CupertinoIcons.search),
+                    border: OutlineInputBorder(),
+                  ),
+                  onChanged: (String value) {
+                    updateSearchText(value, itemOptions.cast<String, String>());
+                  },
                 ),
-                onChanged: (String value) {
-                  updateSearchText(value, itemOptions.cast<String, String>());
-                },
               ),
               Obx(() {
                 // Observe the filteredOptions list and build the dropdown items.
-                return Column(
-                  children:   filteredOptions.map((String option) {
-                    return PopupMenuItem<String>(
-                      value: option,
-                      child: Text(
-                        option,
-                        style: const TextStyle(fontFamily: AppFonts.poppinsRegular),
-                        textAlign: TextAlign.center,
-                      ),
-                    );
-                  }).toList(),
+                return SingleChildScrollView(
+                  child: Column(mainAxisSize: MainAxisSize.min,
+                    children:   filteredOptions.map((String option) {
+                      return PopupMenuItem<String>(
+                        value: option,
+                        child:Center(
+                          child: Text(
+                            option,
+                            style: const TextStyle(fontFamily: AppFonts.poppinsRegular),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
                 );
               }),
             ],
@@ -344,7 +353,7 @@ class ItemsControllerEstimates extends GetxController {
 
     if (selected != null) {
       setSelectedItem(selected);
-      await showCombinedDialog();
+      await showSubOptionsDialog();
     }
   }
 

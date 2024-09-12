@@ -8,10 +8,11 @@ import 'package:painting/app/resources/components/nav_bar_screens_widgets/icon_b
 import 'package:painting/app/utils/utils.dart';
 
 class PhotosControllerEstimates extends GetxController {
-  RxString imagePath = ''.obs;
-  RxList<String> images = <String>[].obs;
+  RxString imagePath = ''.obs; // Reactive path to hold the selected image
+  RxList<String> images = <String>[].obs; // List to hold multiple images
   RxString selectedImage = ''.obs;
 
+  // Function to show the image picker dialog
   void showImageDialog() {
     Get.dialog(AlertDialog(
       title: Text(
@@ -26,55 +27,90 @@ class PhotosControllerEstimates extends GetxController {
         mainAxisSize: MainAxisSize.min,
         children: [
           Obx(
-                () => Container(
-              height: Get.height * 0.2, // Adjusted to be more responsive
-              width: Get.width * 0.7,   // Adjusted to be more responsive
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Get.width * 0.05), // Responsive border radius
-                border: Border.all(
-                  color: Colors.grey,
+                () => GestureDetector(
+              onTap: () {
+                pickImage(); // Trigger image picker when tapping the container
+              },
+              child: Container(
+                height: Get.height * 0.25, // Adjust height responsively
+                width: Get.width * 0.8, // Adjust width responsively
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Get.width * 0.05), // Responsive border radius
+                  border: Border.all(
+                    color: Colors.grey,
+                  ),
                 ),
-              ),
-              child: Center(
-                child: imagePath.isNotEmpty
-                    ? Image.file(
-                  File(imagePath.value),
-                  fit: BoxFit.fitWidth,
-                )
-                    : Icon(
-                  Icons.image_outlined,
-                  color: Colors.grey,
+                child: Center(
+                  child: imagePath.isNotEmpty
+                      ? Image.file(
+                    File(imagePath.value),
+                    fit: BoxFit.cover, // Fit the image properly
+                  )
+                      : Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.image_outlined,
+                        color: Colors.grey,
+                        size: Get.width * 0.1, // Responsive icon size
+                      ),
+                      SizedBox(height: Get.height * 0.01), // Spacing between icon and text
+                      Text(
+                        'Select file here to upload!',
+                        style: TextStyle(
+                          fontFamily: AppFonts.poppinsRegular,
+                          fontSize: Get.width * 0.04, // Responsive text size
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
           SizedBox(
-            height: Get.height * 0.02, // Adjusted to be more responsive
+            height: Get.height * 0.02, // Spacing between elements
           ),
         ],
       ),
       actions: [
-        CustomIconButton(title: 'Cancel', onTap: (){Get.back();}, color: Colors.transparent, textColor: AppColors.primaryRed),
-      CustomIconButton(title: 'Add image', onTap: (){pickImage();}, color: AppColors.primaryRed, textColor: Colors.white)
+        CustomIconButton(
+            title: 'Cancel',
+            onTap: () {
+              Get.back(); // Close the dialog on cancel
+            },
+            color: Colors.transparent,
+            textColor: AppColors.primaryRed),
+        CustomIconButton(
+            title: 'Add image',
+            onTap: () {
+              if (imagePath.isNotEmpty) {
+                images.add(imagePath.value); // Add image to the list
+                Get.back(); // Close dialog after saving
+                Utils.showSnackBar('Success', 'Image added successfully!');
+              } else {
+                Utils.showErrorSnackBar('Warning!', 'No image selected');
+              }
+            },
+            color: AppColors.primaryRed,
+            textColor: Colors.white)
       ],
     ));
   }
 
+  // Function to pick an image from the gallery
   void pickImage() async {
     try {
       final picker = ImagePicker();
       final XFile? image = await picker.pickImage(source: ImageSource.gallery);
       if (image != null) {
-        imagePath.value = image.path;
-        images.add(image.path); // Updated to be consistent with RxList<String>
+        imagePath.value = image.path; // Set the selected image path
       } else {
-        Utils.showErrorSnackBar('Empty credentials', 'Image not selected');
+        Utils.showErrorSnackBar('Warning!', 'No image selected');
       }
     } catch (e) {
-      Utils.showErrorSnackBar('Invalid request', e.toString());
+      Utils.showErrorSnackBar('Error', e.toString());
       print(e.toString());
     }
   }
-
-
 }

@@ -18,10 +18,10 @@ class Utils {
       backgroundColor: Colors.green, // Success color
       colorText: Colors.white, // Text color
       icon: Icon(
-        Icons.check_circle, // Success icon
+        Icons.check_circle_outline, // Success icon
         color: Colors.white,
       ),
-      snackPosition: SnackPosition.BOTTOM, // Position of snackbar
+      snackPosition: SnackPosition.TOP, // Position of snackbar
       margin: const EdgeInsets.all(10), // Margin around the snackbar
       borderRadius: 10, // Rounded corners
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10), // Padding inside the snackbar
