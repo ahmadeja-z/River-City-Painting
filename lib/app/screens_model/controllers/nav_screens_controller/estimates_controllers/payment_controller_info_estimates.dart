@@ -25,7 +25,7 @@ class PaymentControllerEstimates extends GetxController{
            Text('Invoice',style: fontStyle,),
            CustomInfoTextField(hintText: 'Invoice', controller: invoiceController.value),
            Divider(
-             
+
            )
 
 
