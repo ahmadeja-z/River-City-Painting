@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../resources/components/nav_bar_screens_widgets/delection_dialog.dart';
+
 class Utils {
   static changeFocus(
       BuildContext context, FocusNode currentFocus, FocusNode nextNode) {
@@ -61,4 +63,15 @@ class Utils {
       animationDuration: const Duration(milliseconds: 500), // Smooth appearance
     );
   }
+
+
+ static void showDeletionDialog(String itemName,VoidCallback delete) {
+    Get.dialog(
+      DeletionDialog(
+        itemName: itemName,
+        onConfirm: delete,
+      ),
+    );
+  }
+
 }

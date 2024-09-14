@@ -9,6 +9,7 @@ import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_vi
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/notes_info_estimates_view.dart';
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/payment_info_estimates_view.dart';
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/photos_info_estimates_view.dart';
+import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/profile_info_estimates_view.dart';
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/profitability_info_estimates_view.dart';
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/proposal_info_estimates_view.dart';
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/todos_info_estimates_view.dart';
@@ -19,7 +20,7 @@ import 'add_estimates.dart';
 import 'estimates_info_views/action_info_estimates_view.dart';
 import 'estimates_info_views/budget_info_estimates_view.dart';
 import 'estimates_info_views/contacts_info_estimates_view.dart';
-import 'estimates_info_views/files_info_estimates.dart';
+import 'estimates_info_views/files_info_estimates_view.dart';
 import 'estimates_info_views/items/items_tabs_info_estimates.dart';
 
 class EstimatesInfoTabScreen extends StatelessWidget {
@@ -104,21 +105,21 @@ class EstimatesInfoTabScreen extends StatelessWidget {
             Expanded(
               child: TabBarView(
                 children: [
-                  const Center(child: Text('Project Content')),
+                  const ProfileInfoEstimatesView(),
                   const ContactsInfoEstimatesView(),
                   const ActionsInfoEstimatesView(),
                   const ProfitabilityInfoEstimatesView(),
                   const BudgetInfoEstimatesView(),
                   ItemsTabsInfoEstimates(),
                   FilesTabsInfoEstimates(),
-                  PhotosInfoEstimatesView(),
-                  ProposalsInfoEstimatesView(),
-                  NotesInfoEstimatesView(),
-                  EmailsInfoEstimatesView(),
-                  ToDosInfoEstimatesView(),
-                  InvoicesInfoEstimatesView(),
-                  PaymentInfoEstimatesView(),
-                   ExpensesInfoEstimatesView()
+                  const PhotosInfoEstimatesView(),
+                  const ProposalsInfoEstimatesView(),
+                  const NotesInfoEstimatesView(),
+                  const EmailsInfoEstimatesView(),
+                  const ToDosInfoEstimatesView(),
+                  const InvoicesInfoEstimatesView(),
+                  const PaymentInfoEstimatesView(),
+                   const ExpensesInfoEstimatesView()
                 ],
               ),
             ),

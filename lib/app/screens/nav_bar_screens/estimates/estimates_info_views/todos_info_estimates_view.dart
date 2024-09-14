@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/estimates_header_container.dart';
 import 'package:painting/app/screens_model/controllers/nav_screens_controller/estimates_controllers/todos_controller_info_estimates.dart';
+import 'package:painting/app/utils/utils.dart';
 
 import '../../../../resources/components/nav_bar_screens_widgets/todo_widget _estimates.dart';
 
@@ -23,7 +24,7 @@ class ToDosInfoEstimatesView extends StatelessWidget {
             height: Get.height * 0.02,
           ),
           Obx(
-                () => Expanded(
+            () => Expanded(
               child: ListView.builder(
                 itemCount: todoController.todos.length,
                 itemBuilder: (context, index) {
@@ -35,7 +36,12 @@ class ToDosInfoEstimatesView extends StatelessWidget {
                     endDate: todo['endDate'] ?? 'N/A',
                     note: todo['note'] ?? 'N/A',
                     onDelete: () {
-                      todoController.removeTodoAt(index);
+                      Utils.showDeletionDialog('To-Do', () {
+                        todoController.removeTodoAt(index);
+                        Get.back();
+                        Utils.showSnackBar(
+                            'Success!', 'To-Do is successfully deleted');
+                      });
                     },
                   );
                 },

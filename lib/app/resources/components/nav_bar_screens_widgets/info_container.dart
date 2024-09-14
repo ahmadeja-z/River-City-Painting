@@ -18,7 +18,7 @@ class InfoContainer extends StatelessWidget {
 
     return Container(
       height: Get.height*0.08,
-      width: Get.width*0.46,
+      width: Get.width*0.42,
       padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: Colors.white, // Adjust background color if needed
@@ -58,8 +58,8 @@ class InfoContainer extends StatelessWidget {
             ],
           ),
           Container(
-            height: 40,
-            width: 40,
+            height: Get.height*0.053,
+            width: Get.width*0.1,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: AppColors.primaryRed,

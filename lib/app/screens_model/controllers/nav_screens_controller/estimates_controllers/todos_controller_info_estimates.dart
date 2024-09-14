@@ -121,7 +121,9 @@ class ToDosControllerEstimates extends GetxController {
             title: 'Save',
             onTap: () {
               saveToDo();
+              print('urrr$userController');
               print(todos);
+
             },
             color: AppColors.primaryRed,
             textColor: Colors.white,
@@ -131,7 +133,6 @@ class ToDosControllerEstimates extends GetxController {
     );
   }
 
-  // Method to remove a todo item at a specific index
   void removeTodoAt(int index) {
     todos.removeAt(index);
   }
@@ -145,12 +146,11 @@ class ToDosControllerEstimates extends GetxController {
         noteController.value.text.isNotEmpty) {
       todos.add({
         'title': titleController.value.text,
-        'user': userController.value.text,
+        'assignedTo': userController.value.text,
         'startDate': startDate.value.text,
         'endDate': endDate.value.text,
         'note': noteController.value.text,
       });
-      // Clear the controllers after saving
       titleController.value.clear();
       userController.value.clear();
       startDate.value.clear();

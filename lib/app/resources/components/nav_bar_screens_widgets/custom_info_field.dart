@@ -23,8 +23,9 @@ class CustomInfoTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Get.height*0.07,
-      width: Get.width*0.8,
+      height: Get.height * 0.06,  // Example for height proportional to screen height
+      width: Get.width * 0.95,    // Example for width proportional to screen width
+
       child: Card(
         elevation: 3,
         child: TextField(
