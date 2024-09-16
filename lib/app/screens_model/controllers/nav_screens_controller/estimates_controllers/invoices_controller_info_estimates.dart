@@ -163,6 +163,7 @@ class InvoiceControllerEstimates extends GetxController {
         borderRadius: BorderRadius.circular(10),
       ),
       child: TextField(
+        controller: noteController.value,
         style: fontStyle,
         maxLines: 3,
         decoration: InputDecoration(

@@ -26,6 +26,7 @@ class CustomToDoField extends StatelessWidget {
       height: Get.height * 0.04, // Adjust height responsively
       width: Get.width * 0.9,   // Adjust width responsively
       child: TextField(
+
         style: TextStyle(
           fontFamily: AppFonts.poppinsRegular,
           fontSize: 12,
@@ -86,7 +87,7 @@ class CustomToDoField extends StatelessWidget {
             fontSize: 15,
             color: Colors.grey[600],
           ),
-          contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
           fillColor: Colors.white,
           filled: true,
           focusedBorder: OutlineInputBorder(

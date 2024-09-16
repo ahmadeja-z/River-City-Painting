@@ -1,8 +1,11 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:painting/app/resources/app_colors/app_colors.dart';
 import 'package:painting/app/resources/languages/languages.dart';
+import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/expenses_info_estimates_view.dart';
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/files_info_estimates_view.dart';
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/notes_info_estimates_view.dart';
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/payment_info_estimates_view.dart';
@@ -21,7 +24,7 @@ import 'app/screens_model/controllers/nav_screens_controller/estimates_controlle
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
-  runApp(const MyApp());
+  runApp( MyApp(),);
 }
 
 class MyApp extends StatelessWidget {
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
       ),
 locale:const Locale('en','US') ,
 translations: Languages(),
-home: PaymentInfoEstimatesView ()
+home: NavBarScreen ()
 //       getPages: AppRoutes.appRoute(),
     );
 

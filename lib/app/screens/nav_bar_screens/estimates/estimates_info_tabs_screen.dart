@@ -11,7 +11,7 @@ import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_vi
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/photos_info_estimates_view.dart';
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/profile_info_estimates_view.dart';
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/profitability_info_estimates_view.dart';
-import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/proposal_info_estimates_view.dart';
+import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/proposal/proposal_info_estimates_view.dart';
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/todos_info_estimates_view.dart';
 
 import '../../../resources/app_colors/app_colors.dart';

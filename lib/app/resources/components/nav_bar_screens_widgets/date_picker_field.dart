@@ -41,7 +41,7 @@ class DatePickerField extends StatelessWidget {
             readOnly: true,
             controller: controller,
             decoration: InputDecoration(
-              contentPadding: const EdgeInsets.symmetric(vertical: 1, horizontal: 20),
+              contentPadding: const EdgeInsets.symmetric(vertical: 1, horizontal: 10),
               suffixIcon: Icon(CupertinoIcons.calendar,size: 20,),
               hintText: 'dd/mm/yyyy',
               hintStyle: const TextStyle(

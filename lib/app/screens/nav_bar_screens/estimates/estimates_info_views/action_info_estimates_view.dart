@@ -35,7 +35,12 @@ class ActionsInfoEstimatesView extends StatelessWidget {
             ],
 
           ),
-          _buildActionButton('Apply Discount', Icons.attach_money_rounded, AppColors.green),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              _buildActionButton('Apply Discount', Icons.attach_money_rounded, AppColors.green),
+              SizedBox(width: Get.width*.4,)
+            ],
+          ),
           SizedBox(height: Get.height*0.02,),
 
           const CustomHeaderContainer(
@@ -53,7 +58,7 @@ class ActionsInfoEstimatesView extends StatelessWidget {
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _buildActionButton('  Location', Icons.location_on_rounded, Colors.blue),
-            ],
+SizedBox(width: Get.width*.4,)            ],
 
           ),
 

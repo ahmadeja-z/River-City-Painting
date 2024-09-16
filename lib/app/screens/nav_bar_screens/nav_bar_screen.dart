@@ -1,3 +1,5 @@
+import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
+import 'package:circular_bottom_navigation/tab_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,9 +15,8 @@ import 'customers/customer_view.dart';
 import 'dashboard/dashboard_view.dart';
 import 'estimates/estimates_view.dart';
 
-class NavBarScreen extends StatelessWidget {
+class NavBarScreen extends StatefulWidget {
   NavBarScreen({super.key});
-  final navBarController = Get.put(NavBarController());
   static const List<String> titles = <String>[
     'Dashboard',
     'Customers',
@@ -25,16 +26,41 @@ class NavBarScreen extends StatelessWidget {
   static const List<Widget> pages = <Widget>[
     DashboardView(),
     CustomersView(),
-    EstimatesView(),    Center(child: Text('Profile', style: TextStyle(fontSize: 24))),
+    EstimatesView(),
+    Center(child: Text('Profile', style: TextStyle(fontSize: 24))),
   ];
 
   @override
+  State<NavBarScreen> createState() => _NavBarScreenState();
+}
+
+class _NavBarScreenState extends State<NavBarScreen> {
+  final navBarController = Get.put(NavBarController());
+
+  late CircularBottomNavigationController _navigationController;
+
+  List<TabItem> tabItems = [
+    TabItem(Icons.dashboard_outlined, "Home",Colors.white,
+        labelStyle: TextStyle(color: Colors.white,fontFamily: AppFonts.poppinsRegular,fontSize: 12),
+
+    ),
+    TabItem(CupertinoIcons.person_2, "Customers", Colors.white,labelStyle: TextStyle(color: Colors.white,fontFamily: AppFonts.poppinsRegular,fontSize: 12),),
+    TabItem(Icons.menu_rounded, "Estimates", Colors.white,labelStyle: TextStyle(color: Colors.white,fontFamily: AppFonts.poppinsRegular,fontSize: 12),),
+    TabItem(CupertinoIcons.person, "Profile", Colors.white,labelStyle: TextStyle(color: Colors.white,fontFamily: AppFonts.poppinsRegular,fontSize: 12),),
+  ];
+  @override
+  void initState() {
+    super.initState();
+    _navigationController = CircularBottomNavigationController(
+        navBarController.selectedIndex.value);
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
           title: Obx(
             () => Text(
-              titles[navBarController.selectedIndex.value],
+              NavBarScreen.titles[navBarController.selectedIndex.value],
               style: const TextStyle(
                 fontSize: 20,
                 fontFamily: AppFonts.poppinsRegular,
@@ -45,13 +71,15 @@ class NavBarScreen extends StatelessWidget {
           ),
           trailing: Obx(
             () {
-              return pages.elementAt(navBarController.selectedIndex.value) ==
-                      pages[0]
+              return NavBarScreen.pages
+                          .elementAt(navBarController.selectedIndex.value) ==
+                      NavBarScreen.pages[0]
                   ? const CircleAvatar(
                       backgroundImage: AssetImage(AppImages.profileAvatar),
                     )
-                  : pages.elementAt(navBarController.selectedIndex.value) ==
-                          pages[1]
+                  : NavBarScreen.pages.elementAt(
+                              navBarController.selectedIndex.value) ==
+                          NavBarScreen.pages[1]
                       ? IconButton(
                           onPressed: () {
                             Get.to(const AddCustomers());
@@ -60,22 +88,25 @@ class NavBarScreen extends StatelessWidget {
                             CupertinoIcons.add,
                             color: AppColors.primaryRed,
                           ))
-                      :pages.elementAt(navBarController.selectedIndex.value)==pages[2]?
-              IconButton(
-                  onPressed: () {
-                    Get.to(const AddEstimates());
-                  },
-                  icon: const Icon(
-                    CupertinoIcons.add,
-                    color: AppColors.primaryRed,
-                  )):
-              const SizedBox.shrink();
+                      : NavBarScreen.pages.elementAt(
+                                  navBarController.selectedIndex.value) ==
+                              NavBarScreen.pages[2]
+                          ? IconButton(
+                              onPressed: () {
+                                Get.to(const AddEstimates());
+                              },
+                              icon: const Icon(
+                                CupertinoIcons.add,
+                                color: AppColors.primaryRed,
+                              ))
+                          : const SizedBox.shrink();
             },
           ),
           leading: Obx(
             () {
-              return pages.elementAt(navBarController.selectedIndex.value) ==
-                      pages[0]
+              return NavBarScreen.pages
+                          .elementAt(navBarController.selectedIndex.value) ==
+                      NavBarScreen.pages[0]
                   ? IconButton(
                       onPressed: () {},
                       icon: const Icon(
@@ -85,16 +116,30 @@ class NavBarScreen extends StatelessWidget {
                   : const SizedBox.shrink();
             },
           )),
-      body: Stack(
-        children: [
-          Obx(
-            () => pages.elementAt(navBarController.selectedIndex.value),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: NavBar(),
-          )
-        ],
+      body: Obx(
+        () => Stack(
+          children: [
+            NavBarScreen.pages.elementAt(navBarController.selectedIndex.value),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: CircularBottomNavigation(
+                backgroundBoxShadow: [BoxShadow(
+                  color: Colors.transparent
+                )],
+                barBackgroundColor: AppColors.primaryRed,
+                selectedIconColor: AppColors.primaryRed,
+                normalIconColor: Colors.white,
+                tabItems,
+                iconsSize: 25,
+                selectedPos: navBarController.selectedIndex.value,
+                controller: _navigationController,
+                selectedCallback: (int? selectedPos) {
+                  navBarController.selectedIndex.value = selectedPos!;
+                },
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
