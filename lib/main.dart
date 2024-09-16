@@ -18,6 +18,7 @@ import 'app/screens/nav_bar_screens/estimates/estimates_info_views/invoices_info
 import 'app/screens/nav_bar_screens/estimates/estimates_info_views/items/add_items_container.dart';
 import 'app/screens/nav_bar_screens/estimates/estimates_info_views/items/items_tabs_info_estimates.dart';
 import 'app/screens/nav_bar_screens/estimates/estimates_info_views/profile_info_estimates_view.dart';
+import 'app/screens/nav_bar_screens/estimates/estimates_info_views/proposal/proposal.dart';
 import 'app/screens/nav_bar_screens/nav_bar_screen.dart';
 import 'app/screens_model/controllers/nav_screens_controller/estimates_controllers/invoices_controller_info_estimates.dart';
 
@@ -40,8 +41,8 @@ class MyApp extends StatelessWidget {
       ),
 locale:const Locale('en','US') ,
 translations: Languages(),
-home: NavBarScreen ()
-//       getPages: AppRoutes.appRoute(),
+// home: Proposal ()
+      getPages: AppRoutes.appRoute(),
     );
 
   }
