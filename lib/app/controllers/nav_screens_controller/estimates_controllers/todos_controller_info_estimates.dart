@@ -4,9 +4,9 @@ import 'package:painting/app/resources/app_colors/app_colors.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/custom_info_field.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/icon_button.dart';
-import '../../../../resources/components/nav_bar_screens_widgets/custom_todo_field.dart';
-import '../../../../resources/components/nav_bar_screens_widgets/date_picker_field.dart';
-import '../../../../utils/utils.dart';
+import '../../../resources/components/nav_bar_screens_widgets/custom_todo_field.dart';
+import '../../../resources/components/nav_bar_screens_widgets/date_picker_field.dart';
+import '../../../utils/utils.dart';
 
 class ToDosControllerEstimates extends GetxController {
   final TextStyle fontStyle = TextStyle(
@@ -54,6 +54,8 @@ class ToDosControllerEstimates extends GetxController {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Divider(),
+              SizedBox(height: Get.height*0.01,),
               Text('Title', style: fontStyle),
               CustomToDoField(
                 hintText: 'Title',

@@ -18,7 +18,7 @@ class InfoContainer extends StatelessWidget {
 
     return Container(
       height: Get.height*0.08,
-      width: Get.width*0.42,
+      width: Get.width*0.4,
       padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: Colors.white, // Adjust background color if needed
@@ -41,10 +41,10 @@ class InfoContainer extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontFamily: AppFonts.poppinsRegular,
-                  fontSize: 11,
+                  fontSize: Get.width*0.027,
                 ),
               ),
               Text(

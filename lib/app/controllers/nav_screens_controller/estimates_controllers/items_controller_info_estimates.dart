@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
-import '../../../../resources/app_colors/app_colors.dart';
+import '../../../resources/app_colors/app_colors.dart';
 
 class ItemsControllerEstimates extends GetxController {
   // Observables for managing state

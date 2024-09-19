@@ -8,7 +8,7 @@ import 'package:painting/app/resources/components/customized_textField.dart';
 import 'package:painting/app/resources/routes/routes_name.dart';
 
 import '../../resources/app_colors/app_colors.dart';
-import '../../screens_model/controllers/authentication_controllers/login_screen_controller.dart';
+import '../../controllers/authentication_controllers/login_screen_controller.dart';
 import '../nav_bar_screens/nav_bar_screen.dart';
 
 class LoginScreen extends StatefulWidget {

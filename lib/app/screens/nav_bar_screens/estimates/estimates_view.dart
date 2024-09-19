@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/estimates_profile_container.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/search_text_field.dart';
-import 'package:painting/app/screens_model/controllers/nav_screens_controller/estimated_controller.dart';
+import 'package:painting/app/controllers/nav_screens_controller/estimated_controller.dart';
 
 import 'estimates_info_tabs_screen.dart';
 

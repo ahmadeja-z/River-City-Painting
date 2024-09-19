@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
 import 'package:painting/app/resources/components/customized_button.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/custom_info_field.dart';
-import 'package:painting/app/screens_model/controllers/nav_screens_controller/add_customer_controller.dart';
-import 'package:painting/app/screens_model/controllers/nav_screens_controller/customer_controller.dart'; // Import CustomerController
+import 'package:painting/app/controllers/nav_screens_controller/add_customer_controller.dart';
+import 'package:painting/app/controllers/nav_screens_controller/customer_controller.dart'; // Import CustomerController
 
 import '../../../resources/app_colors/app_colors.dart';
 import '../../../resources/components/nav_bar_screens_widgets/custom_app_bar.dart';

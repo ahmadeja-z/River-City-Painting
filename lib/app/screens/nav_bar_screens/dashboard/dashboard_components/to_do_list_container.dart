@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
 import '../../../../resources/app_colors/app_colors.dart';
-import '../../../../screens_model/controllers/nav_screens_controller/dashboard_controller.dart';
+import '../../../../controllers/nav_screens_controller/dashboard_controller.dart';
 
 class ToDoListContainer extends StatelessWidget {
   final DashboardController controller = Get.put(DashboardController());

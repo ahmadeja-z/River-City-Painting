@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:painting/app/resources/app_colors/app_colors.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/estimates_header_container.dart';
-import 'package:painting/app/screens_model/controllers/nav_screens_controller/estimates_controllers/notes_controller_info_estimates.dart';
+import 'package:painting/app/controllers/nav_screens_controller/estimates_controllers/notes_controller_info_estimates.dart';
 
 class NotesInfoEstimatesView extends StatelessWidget {
   const NotesInfoEstimatesView({super.key});

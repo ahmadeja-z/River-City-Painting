@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
 import '../../../../../resources/app_colors/app_colors.dart';
 import '../../../../../resources/components/nav_bar_screens_widgets/estimates_header_container.dart';
-import '../../../../../screens_model/controllers/nav_screens_controller/estimates_controllers/items_controller_info_estimates.dart';
+import '../../../../../controllers/nav_screens_controller/estimates_controllers/items_controller_info_estimates.dart';
 
 class ItemsTabsInfoEstimates extends StatelessWidget {
   final List<Tab> myTabs = <Tab>[

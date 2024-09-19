@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
-import 'package:painting/app/screens_model/controllers/nav_screens_controller/schedule_controller.dart';
+import 'package:painting/app/controllers/nav_screens_controller/schedule_controller.dart';
 import '../../../../resources/app_colors/app_colors.dart';
 import '../../../../resources/components/nav_bar_screens_widgets/schedule_tile.dart';
 import '../../../../resources/components/nav_bar_screens_widgets/search_text_field.dart'; // Import the SearchTextField widget

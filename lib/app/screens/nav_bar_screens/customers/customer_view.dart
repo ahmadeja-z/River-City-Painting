@@ -7,7 +7,7 @@ import 'package:painting/app/resources/components/nav_bar_screens_widgets/custom
 import '../../../models/customer_model.dart';
 import '../../../resources/components/nav_bar_screens_widgets/customer_info_alert.dart';
 import '../../../resources/components/nav_bar_screens_widgets/search_text_field.dart';
-import '../../../screens_model/controllers/nav_screens_controller/customer_controller.dart';
+import '../../../controllers/nav_screens_controller/customer_controller.dart';
 
 class CustomersView extends StatelessWidget {
   const CustomersView({super.key});

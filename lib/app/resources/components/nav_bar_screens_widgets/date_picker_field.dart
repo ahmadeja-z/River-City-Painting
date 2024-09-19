@@ -34,7 +34,7 @@ class DatePickerField extends StatelessWidget {
       onTap: () => _selectDate(context),
       child: AbsorbPointer(
         child: SizedBox(
-          width: Get.width*0.3,
+          width: Get.width*0.28,
           height: Get.height*0.04,
           child: TextField(
             style: TextStyle(fontFamily: AppFonts.interRegular,fontSize: 10),

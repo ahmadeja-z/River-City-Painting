@@ -38,62 +38,68 @@ class FilesControllerEstimates extends GetxController {
             color: AppColors.primaryRed,
           ),
         ),
-        content: Container(
-          width: Get.width * 0.8, // Responsive width
-          height: Get.height * 0.05, // Responsive height
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(
-                Get.width * 0.02), // Responsive border radius
-            border: Border.all(color: Colors.black),
-          ),
-          child: Row(
-            children: [
-              Padding(
-                padding: EdgeInsets.all(Get.width * 0.01), // Responsive padding
-                child: GestureDetector(
-                  onTap: () {
-                    pickFile();
-                  },
-                  child: Container(
-                    height: Get.height * 0.06, // Responsive height
-                    width: Get.width * 0.25, // Responsive width
-                    decoration: BoxDecoration(
-                      color: AppColors.primaryRed,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(
-                            Get.width * 0.02), // Responsive border radius
-                        bottomLeft: Radius.circular(
-                            Get.width * 0.02), // Responsive border radius
+        content: Column(mainAxisSize: MainAxisSize.min,
+          children: [
+            Divider(),
+            SizedBox(height: Get.height*0.01,),
+            Container(
+              width: Get.width * 0.8, // Responsive width
+              height: Get.height * 0.05, // Responsive height
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                    Get.width * 0.02), // Responsive border radius
+                border: Border.all(color: Colors.black),
+              ),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(Get.width * 0.01), // Responsive padding
+                    child: GestureDetector(
+                      onTap: () {
+                        pickFile();
+                      },
+                      child: Container(
+                        height: Get.height * 0.06, // Responsive height
+                        width: Get.width * 0.25, // Responsive width
+                        decoration: BoxDecoration(
+                          color: AppColors.primaryRed,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(
+                                Get.width * 0.02), // Responsive border radius
+                            bottomLeft: Radius.circular(
+                                Get.width * 0.02), // Responsive border radius
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Choose File',
+                            style: TextStyle(
+                              fontFamily: AppFonts.poppinsRegular,
+                              color: Colors.white,
+                              fontSize: Get.width * 0.03, // Responsive font size
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    child: Center(
-                      child: Text(
-                        'Choose File',
+                  ),
+                  Expanded(
+                    child: Obx(
+                      () => Text(
+                        pickedFile.value != null
+                            ? pickedFile.value!.path.split('/').last
+                            : 'No File Chosen',
                         style: TextStyle(
                           fontFamily: AppFonts.poppinsRegular,
-                          color: Colors.white,
                           fontSize: Get.width * 0.03, // Responsive font size
                         ),
                       ),
                     ),
                   ),
-                ),
+                ],
               ),
-              Expanded(
-                child: Obx(
-                  () => Text(
-                    pickedFile.value != null
-                        ? pickedFile.value!.path.split('/').last
-                        : 'No File Chosen',
-                    style: TextStyle(
-                      fontFamily: AppFonts.poppinsRegular,
-                      fontSize: Get.width * 0.03, // Responsive font size
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
         actions: [
           CustomIconButton(

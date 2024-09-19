@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../../../utils/alert_box.dart';
+import '../../utils/alert_box.dart';
 
 class LoginController extends GetxController{
 

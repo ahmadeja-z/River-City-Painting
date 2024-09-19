@@ -6,7 +6,7 @@ import 'package:painting/app/resources/app_colors/app_colors.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/estimates_header_container.dart';
 
 import '../../../../resources/components/nav_bar_screens_widgets/icon_button.dart';
-import '../../../../screens_model/controllers/nav_screens_controller/estimates_controllers/photos_controller_info_estimates.dart';
+import '../../../../controllers/nav_screens_controller/estimates_controllers/photos_controller_info_estimates.dart';
 
 class PhotosInfoEstimatesView extends StatelessWidget {
   const PhotosInfoEstimatesView({super.key});

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:painting/app/resources/app_colors/app_colors.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/icon_button.dart';
-import '../../../../utils/utils.dart';
+import '../../../utils/utils.dart';
 
 class NotesControllerEstimates extends GetxController {
   final noteController =
@@ -19,18 +19,24 @@ class NotesControllerEstimates extends GetxController {
           style: TextStyle(
               color: AppColors.primaryRed, fontWeight: FontWeight.bold),
         ),
-        content: SizedBox(
-          height: Get.height * 0.1,
-          width: Get.width * 0.4,
-          child: TextField(
-            controller: noteController.value,
-            maxLines: 4,
-            decoration: const InputDecoration(
-              contentPadding: EdgeInsets.all(10),
-              hintText: 'Add Note...',
-              border: OutlineInputBorder(),
+        content: Column(mainAxisSize: MainAxisSize.min,
+          children: [
+            Divider(),
+            SizedBox(height: Get.height*0.01,),
+            SizedBox(
+              height: Get.height * 0.1,
+              width: Get.width * 0.9,
+              child: TextField(
+                controller: noteController.value,
+                maxLines: 4,
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.all(10),
+                  hintText: 'Add Note...',
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-          ),
+          ],
         ),
         actions: [
           CustomIconButton(

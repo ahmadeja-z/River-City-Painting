@@ -6,7 +6,7 @@ import 'package:painting/app/resources/components/nav_bar_screens_widgets/custom
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/date_picker_field.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/icon_button.dart';
 
-import '../../../../resources/assets/app_fonts.dart';
+import '../../../resources/assets/app_fonts.dart';
 
 class ExpensesControllerEstimates extends GetxController {
   final dateController = TextEditingController().obs;
@@ -177,7 +177,7 @@ class ExpensesControllerEstimates extends GetxController {
   Widget _customColumn(Widget first, Widget second) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start,
       children: [first, SizedBox(
-      width:     Get.width*0.3,
+      width:     Get.width*0.28,
           child: second)],
     );
   }

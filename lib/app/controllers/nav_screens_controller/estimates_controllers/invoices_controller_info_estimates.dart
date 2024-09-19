@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../resources/app_colors/app_colors.dart';
-import '../../../../resources/assets/app_fonts.dart';
-import '../../../../resources/components/nav_bar_screens_widgets/custom_todo_field.dart';
-import '../../../../resources/components/nav_bar_screens_widgets/date_picker_field.dart';
-import '../../../../resources/components/nav_bar_screens_widgets/icon_button.dart';
+import '../../../resources/app_colors/app_colors.dart';
+import '../../../resources/assets/app_fonts.dart';
+import '../../../resources/components/nav_bar_screens_widgets/custom_todo_field.dart';
+import '../../../resources/components/nav_bar_screens_widgets/date_picker_field.dart';
+import '../../../resources/components/nav_bar_screens_widgets/icon_button.dart';
 
 class InvoiceControllerEstimates extends GetxController {
   // Reactive variables for UI state
@@ -41,7 +41,8 @@ class InvoiceControllerEstimates extends GetxController {
       content: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: [  Divider(),
+            SizedBox(height: Get.height*0.01,),
             _buildTextSection('Details:', fontStyle),
             SizedBox(height: Get.height * 0.01),
             Row(
@@ -87,7 +88,7 @@ class InvoiceControllerEstimates extends GetxController {
   Widget _buildColumn(String label, Widget child, TextStyle fontStyle) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Text(label, style: fontStyle),
-      SizedBox(width: Get.width * 0.3, child: child)
+      SizedBox(width: Get.width * 0.28, child: child)
     ]);
   }
 

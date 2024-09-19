@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../models/customer_model.dart';
-import '../../../utils/utils.dart';
+import '../../models/customer_model.dart';
+import '../../utils/utils.dart';
 import 'customer_controller.dart';
 
 class AddEstimatesController extends GetxController {

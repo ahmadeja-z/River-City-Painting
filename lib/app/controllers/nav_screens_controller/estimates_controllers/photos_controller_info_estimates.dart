@@ -25,7 +25,8 @@ class PhotosControllerEstimates extends GetxController {
       ),
       content: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: [  Divider(),
+          SizedBox(height: Get.height*0.01,),
           Obx(
                 () => GestureDetector(
               onTap: () {
@@ -59,7 +60,7 @@ class PhotosControllerEstimates extends GetxController {
                         'Select file here to upload!',
                         style: TextStyle(
                           fontFamily: AppFonts.poppinsRegular,
-                          fontSize: Get.width * 0.04, // Responsive text size
+                          fontSize: Get.width * 0.03, // Responsive text size
                         ),
                       )
                     ],

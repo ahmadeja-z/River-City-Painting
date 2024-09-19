@@ -6,7 +6,7 @@ import 'package:painting/app/resources/components/nav_bar_screens_widgets/custom
 import '../../../resources/app_colors/app_colors.dart';
 import '../../../resources/assets/app_fonts.dart';
 import '../../../resources/components/nav_bar_screens_widgets/custom_info_field.dart';
-import '../../../screens_model/controllers/nav_screens_controller/add_estimates_controller.dart';
+import '../../../controllers/nav_screens_controller/add_estimates_controller.dart';
 
 class AddEstimates extends StatefulWidget {
   const AddEstimates({super.key});

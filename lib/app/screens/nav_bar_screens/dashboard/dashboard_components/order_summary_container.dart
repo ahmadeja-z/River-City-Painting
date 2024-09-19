@@ -4,7 +4,7 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:painting/app/resources/app_colors/app_colors.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
 
-import '../../../../screens_model/controllers/nav_screens_controller/dashboard_controller.dart';
+import '../../../../controllers/nav_screens_controller/dashboard_controller.dart';
 
 
 class OrderSummaryContainer extends StatefulWidget {
@@ -32,7 +32,7 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
     return Container(
       padding: const EdgeInsets.all(15),
       height: Get.height * 0.4,
-      width: Get.width * .94,
+      width: Get.width * .9,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: Colors.white,
@@ -51,18 +51,18 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 'Orders Summary',
                 style: TextStyle(
                   fontFamily: AppFonts.robotoRegular,
-                  fontSize: 18,
+                  fontSize:  Get.width * 0.04,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               SizedBox(width: Get.width * 0.07),
               TabBar(
-                labelStyle: const TextStyle(
-                  fontSize: 12,
+                labelStyle:  TextStyle(
+                  fontSize: Get.width*0.03,
                   fontWeight: FontWeight.w500,
                   fontFamily: AppFonts.robotoRegular,
                 ),
@@ -73,6 +73,7 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
                 labelColor: AppColors.primaryRed,
                 unselectedLabelColor: Colors.black54,
                 indicatorColor: AppColors.primaryRed,
+
                 indicatorWeight: 3.0,
                 isScrollable: true,
                 tabs: const [
@@ -86,10 +87,10 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
           const Divider(height: 1,),
           SizedBox(height: Get.height * 0.02),
 
-          const Text(
+           Text(
             'Lorem ipsum dolor sit amet, consectetur',
             style: TextStyle(
-              fontSize: 12,
+              fontSize: Get.width*0.035,
               fontWeight: FontWeight.w400,
               color: Color(0xFF2A2B43),
               fontFamily: AppFonts.robotoRegular,
@@ -159,9 +160,9 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
               animationDuration: 1200,
               center: Text(
                 "${(percent * 100).toStringAsFixed(0)}%",
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 20.0,
+                  fontSize: Get.width * 0.05, // Example: 5% of screen width
                   color: Colors.black,
                 ),
               ),
@@ -250,7 +251,7 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
     return Container(
       padding: const EdgeInsets.all(5),
       height: Get.height * 0.07,
-      width: Get.width * 0.26,
+      width: Get.width * 0.25,
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.grey.withOpacity(.6),

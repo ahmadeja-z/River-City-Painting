@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:painting/app/models/customer_model.dart';
-import 'package:painting/app/screens_model/controllers/nav_screens_controller/customer_controller.dart';
+import 'package:painting/app/controllers/nav_screens_controller/customer_controller.dart';
 
 class EstimatedController extends GetxController {
   // Access CustomerController instance

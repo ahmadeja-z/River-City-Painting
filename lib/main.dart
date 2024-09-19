@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:painting/app/resources/app_colors/app_colors.dart';
 import 'package:painting/app/resources/languages/languages.dart';
+import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/emails_info_estimates_view.dart';
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/expenses_info_estimates_view.dart';
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/files_info_estimates_view.dart';
 import 'package:painting/app/screens/nav_bar_screens/estimates/estimates_info_views/notes_info_estimates_view.dart';
@@ -20,14 +21,15 @@ import 'app/screens/nav_bar_screens/estimates/estimates_info_views/items/items_t
 import 'app/screens/nav_bar_screens/estimates/estimates_info_views/profile_info_estimates_view.dart';
 import 'app/screens/nav_bar_screens/estimates/estimates_info_views/proposal/proposal.dart';
 import 'app/screens/nav_bar_screens/nav_bar_screen.dart';
-import 'app/screens_model/controllers/nav_screens_controller/estimates_controllers/invoices_controller_info_estimates.dart';
-
+import 'app/controllers/nav_screens_controller/estimates_controllers/invoices_controller_info_estimates.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
-  runApp( MyApp(),);
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.white),
+  );
+  runApp(
+    MyApp(),
+  );
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -41,7 +43,7 @@ class MyApp extends StatelessWidget {
       ),
 locale:const Locale('en','US') ,
 translations: Languages(),
-// home: Proposal ()
+// home: EmailsInfoEstimatesView ()
       getPages: AppRoutes.appRoute(),
     );
 

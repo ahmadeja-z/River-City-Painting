@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../screens_model/controllers/nav_screens_controller/estimates_controllers/items_controller_info_estimates.dart';
+import '../../../../../controllers/nav_screens_controller/estimates_controllers/items_controller_info_estimates.dart';
 
 class DropdownTextFieldScreen extends StatelessWidget {
   final ItemsControllerEstimates controller = Get.put(ItemsControllerEstimates());

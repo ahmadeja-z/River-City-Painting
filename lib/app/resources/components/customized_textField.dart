@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';  // Import GetX for responsive design
+import 'package:get/get.dart'; // Import GetX for responsive design
 import 'package:painting/app/resources/app_colors/app_colors.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
 
@@ -31,13 +31,10 @@ class CustomizedTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Define the fixed height and width based on designer's values
-    double fixedHeight = 47;
-    double fixedWidth = 370;
-
     return Container(
-      width: fixedWidth,
-      height: fixedHeight,
+      height: Get.height * 0.05, // Equivalent to 47 height
+      width: Get.width * 0.9 , // Equivalent to 370 width
+
       child: TextField(
         keyboardType: inputText,
         controller: controller,
@@ -68,7 +65,8 @@ class CustomizedTextField extends StatelessWidget {
               borderSide: const BorderSide(color: Colors.grey)),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(color: AppColors.textFieldFillColor)),
+              borderSide:
+                  const BorderSide(color: AppColors.textFieldFillColor)),
         ),
       ),
     );

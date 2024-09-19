@@ -10,7 +10,7 @@ import 'package:painting/app/screens/nav_bar_screens/customers/add_customers_scr
 import 'package:painting/app/screens/nav_bar_screens/estimates/add_estimates.dart';
 import '../../resources/app_colors/app_colors.dart';
 import '../../resources/assets/app_fonts.dart';
-import '../../screens_model/controllers/nav_screens_controller/nav_bar_controller.dart';
+import '../../controllers/nav_screens_controller/nav_bar_controller.dart';
 import 'customers/customer_view.dart';
 import 'dashboard/dashboard_view.dart';
 import 'estimates/estimates_view.dart';

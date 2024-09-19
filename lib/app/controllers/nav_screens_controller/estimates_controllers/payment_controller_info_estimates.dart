@@ -4,8 +4,8 @@ import 'package:painting/app/resources/components/nav_bar_screens_widgets/custom
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/date_picker_field.dart';
 import 'package:painting/app/resources/components/nav_bar_screens_widgets/icon_button.dart';
 
-import '../../../../resources/app_colors/app_colors.dart';
-import '../../../../resources/assets/app_fonts.dart';
+import '../../../resources/app_colors/app_colors.dart';
+import '../../../resources/assets/app_fonts.dart';
 
 class PaymentControllerEstimates extends GetxController {
   Rx<TextEditingController> invoiceController = TextEditingController().obs;
@@ -26,6 +26,7 @@ class PaymentControllerEstimates extends GetxController {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
             Text(
               'Invoice',
               style: fontStyle,
@@ -47,7 +48,7 @@ class PaymentControllerEstimates extends GetxController {
                       style: fontStyle,
                     ),
                     SizedBox(
-                        width: Get.width * 0.3,
+                        width: Get.width * 0.28,
                         child:
                             DatePickerField(controller: dateController.value))
                   ],
@@ -59,7 +60,7 @@ class PaymentControllerEstimates extends GetxController {
                       style: fontStyle,
                     ),
                     SizedBox(
-                        width: Get.width * 0.3,
+                        width: Get.width * 0.28,
                         child: CustomToDoField(
                             hintText: 'Amount',
                             controller: amountController.value))

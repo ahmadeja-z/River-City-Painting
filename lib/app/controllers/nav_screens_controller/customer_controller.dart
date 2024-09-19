@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../../models/customer_model.dart';
+import '../../models/customer_model.dart';
 
 class CustomerController extends GetxController{
   var customers = <Customer>[

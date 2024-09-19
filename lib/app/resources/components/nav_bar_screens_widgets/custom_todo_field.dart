@@ -84,7 +84,7 @@ class CustomToDoField extends StatelessWidget {
           hintText: hintText,
           hintStyle: TextStyle(
             fontFamily: AppFonts.poppinsRegular,
-            fontSize: 15,
+            fontSize: 13,
             color: Colors.grey[600],
           ),
           contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
