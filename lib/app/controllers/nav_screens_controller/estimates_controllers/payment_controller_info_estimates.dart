@@ -93,8 +93,8 @@ class PaymentControllerEstimates extends GetxController {
 
   Widget _buildNoteSection(TextStyle fontStyle) {
     return Container(
-      height: Get.height * 0.07,
-      width: Get.width * 0.8,
+
+      width: Get.width * 0.9,
       padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.greyishBlack.withOpacity(0.2)),

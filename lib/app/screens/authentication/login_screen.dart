@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
             ),
       SizedBox(
-        height: Get.height*0.08,
+        height: Get.height*0.09,
       ),
             Image.asset(AppImages.lowerCornerIcon)
 

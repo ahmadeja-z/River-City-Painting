@@ -14,7 +14,6 @@ class EstimatesView extends StatelessWidget {
     final EstimatedController estimatedController = Get.put(EstimatedController());
 
     return Scaffold(
-
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(

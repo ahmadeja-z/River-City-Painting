@@ -111,7 +111,7 @@ class EstimatesInfoTabScreen extends StatelessWidget {
                   const ProfitabilityInfoEstimatesView(),
                   const BudgetInfoEstimatesView(),
                   ItemsTabsInfoEstimates(),
-                  FilesTabsInfoEstimates(),
+                  FilesInfoEstimates(),
                   const PhotosInfoEstimatesView(),
                   const ProposalsInfoEstimatesView(),
                   const NotesInfoEstimatesView(),

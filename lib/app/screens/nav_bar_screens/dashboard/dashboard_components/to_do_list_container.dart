@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
 import '../../../../resources/app_colors/app_colors.dart';
 import '../../../../controllers/nav_screens_controller/dashboard_controller.dart';
+import '../../../../utils/utils.dart';
 
 class ToDoListContainer extends StatelessWidget {
   final DashboardController controller = Get.put(DashboardController());
@@ -21,28 +22,29 @@ class ToDoListContainer extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: Colors.white,
-          boxShadow: const[
+          boxShadow: const [
             BoxShadow(
               color: Colors.black12,
               spreadRadius: 4,
               blurRadius: 6,
-              offset:  Offset(0, 3),
+              offset: Offset(0, 3),
             ),
           ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+             Text(
               'To do List',
               style: TextStyle(
                 fontSize: 18,
+                color: AppColors.primaryRed,
                 fontFamily: AppFonts.poppinsRegular,
                 fontWeight: FontWeight.w600,
               ),
-            )
-            ,
-            SizedBox(height: Get.height*0.01,),
+            ),
+            Divider(),
+            SizedBox(height: Get.height * 0.01),
             Row(
               children: [
                 Expanded(
@@ -54,22 +56,27 @@ class ToDoListContainer extends StatelessWidget {
                       fontSize: 17,
                       fontWeight: FontWeight.w300,
                     ),
-                    decoration: const InputDecoration(
-                      hintText: 'Add a new',
-                      contentPadding: EdgeInsets.only(left: 25),
+                    decoration:  InputDecoration(
+                      hintText: 'Add a new...',
+                      hintStyle: TextStyle(fontFamily: AppFonts.poppinsRegular,),
+                      contentPadding: EdgeInsets.only(left: Get.width*0.05),
                     ),
                   ),
                 ),
-                const SizedBox(width: 8),
+                 SizedBox(width: Get.width*0.03),
                 GestureDetector(
                   onTap: () {
-                    controller.addToDo(controller.toDoController.value.text);
-                    controller.toDoController.value.clear();
+                    final text = controller.toDoController.value.text;
+                    if (text.isNotEmpty) {
+                      controller.addToDo(text);
+                      controller.toDoController.value.clear();
+                    } else {
+                      Utils.showErrorSnackBar('Invalid Input', 'Please enter a to-do item!');
+                    }
                   },
                   child: Container(
-                    height: 25,
-                    width: 25,
-                    decoration: BoxDecoration(
+                    padding: EdgeInsets.symmetric(horizontal: Get.width*0.01,vertical: Get.width*0.01),
+ decoration: BoxDecoration(
                       color: AppColors.primaryRed,
                       borderRadius: BorderRadius.circular(4),
                     ),
@@ -77,7 +84,7 @@ class ToDoListContainer extends StatelessWidget {
                       child: Icon(
                         CupertinoIcons.add,
                         color: Colors.white,
-                        size: 18,
+                        size: 22, // Increased icon size
                       ),
                     ),
                   ),
@@ -88,7 +95,10 @@ class ToDoListContainer extends StatelessWidget {
             Expanded(
               child: Obx(() {
                 return controller.toDoList.isEmpty
-                    ? const Center(child: Text('Add new to-do'))
+                    ? Padding(
+                      padding: const EdgeInsets.all(128.0),
+                      child: const Center(child: Text('Add new to-do')),
+                    )
                     : Scrollbar(
                   thickness: 6.0,
                   radius: const Radius.circular(10),
@@ -97,29 +107,37 @@ class ToDoListContainer extends StatelessWidget {
                     itemCount: controller.toDoList.length,
                     itemBuilder: (context, index) {
                       final todos = controller.toDoList[index];
-                      return _listTile(Checkbox(
-                        activeColor: AppColors.primaryRed,
-                        value: todos.isDone,
-                        onChanged: (value) {
-                          controller.upDateTodoStatus(index, value!);
-                        },
-                      ),
-                        Text(
-                        todos.title ?? 'NoTitle',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontFamily: AppFonts.robotoRegular,
-                          fontSize: 17,
-                          decoration: todos.isDone
-                              ? TextDecoration.lineThrough
-                              : TextDecoration.none,
+                      return _listTile(
+                        Checkbox(
+                          activeColor: AppColors.primaryRed,
+                          value: todos.isDone,
+                          onChanged: (value) {
+                            controller.upDateTodoStatus(index, value!);
+                           todos.isDone? Utils.showSnackBar('Successfully', 'Todo successfully Completed'):Utils.showErrorSnackBar('Unsuccessfully', 'Todo are not completed yet');
+                          },
                         ),
-                      ), IconButton(
-                        icon: const Icon(Icons.clear),
-                        onPressed: () {
-                          controller.deleteToDoAt(index);
-                        },
-                      ),);
+                        Text(
+                          todos.title ?? 'NoTitle',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontFamily: AppFonts.poppinsRegular,
+                            fontSize: 17,
+                            color: todos.isDone?AppColors.primaryRed:AppColors.black,
+                            decoration: todos.isDone
+                                ? TextDecoration.lineThrough
+                                : TextDecoration.none,
+                          ),
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            CupertinoIcons.delete,
+                            color: AppColors.primaryRed,
+                          ),
+                          onPressed: () {
+                           Utils.showDeletionDialog('Todo', (){ controller.deleteToDoAt(index);});
+                          },
+                        ),
+                      );
                     },
                   ),
                 );
@@ -130,11 +148,14 @@ class ToDoListContainer extends StatelessWidget {
       ),
     );
   }
-  Widget _listTile(Widget leading,Widget title,Widget trailing){
+
+  Widget _listTile(Widget leading, Widget title, Widget trailing) {
     return Row(
       children: [
-        leading,title,const Spacer(),trailing
-
+        leading,
+        title,
+        const Spacer(),
+        trailing,
       ],
     );
   }

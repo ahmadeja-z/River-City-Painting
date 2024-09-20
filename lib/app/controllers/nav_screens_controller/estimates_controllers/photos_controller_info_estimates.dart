@@ -32,38 +32,40 @@ class PhotosControllerEstimates extends GetxController {
               onTap: () {
                 pickImage(); // Trigger image picker when tapping the container
               },
-              child: Container(
-                height: Get.height * 0.25, // Adjust height responsively
-                width: Get.width * 0.8, // Adjust width responsively
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Get.width * 0.05), // Responsive border radius
-                  border: Border.all(
-                    color: Colors.grey,
+              child: SingleChildScrollView(
+                child: Container(
+                  margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                 padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Get.width * 0.02), // Responsive border radius
+                    border: Border.all(
+                      color: Colors.grey,
+                    ),
                   ),
-                ),
-                child: Center(
-                  child: imagePath.isNotEmpty
-                      ? Image.file(
-                    File(imagePath.value),
-                    fit: BoxFit.cover, // Fit the image properly
-                  )
-                      : Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.image_outlined,
-                        color: Colors.grey,
-                        size: Get.width * 0.1, // Responsive icon size
-                      ),
-                      SizedBox(height: Get.height * 0.01), // Spacing between icon and text
-                      Text(
-                        'Select file here to upload!',
-                        style: TextStyle(
-                          fontFamily: AppFonts.poppinsRegular,
-                          fontSize: Get.width * 0.03, // Responsive text size
+                  child: Center(
+                    child: imagePath.isNotEmpty
+                        ? Image.file(
+                      File(imagePath.value),
+                      fit: BoxFit.cover, // Fit the image properly
+                    )
+                        : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.image_outlined,
+                          color: Colors.grey,
+                          size: Get.width * 0.1, // Responsive icon size
                         ),
-                      )
-                    ],
+                        SizedBox(height: Get.height * 0.01), // Spacing between icon and text
+                        Text(
+                          'Select file here to upload!',
+                          style: TextStyle(
+                            fontFamily: AppFonts.poppinsRegular,
+                            fontSize: Get.width * 0.03, // Responsive text size
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

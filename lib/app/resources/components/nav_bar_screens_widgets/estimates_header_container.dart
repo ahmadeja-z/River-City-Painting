@@ -22,8 +22,8 @@ class CustomHeaderContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      height: Get.height * 0.05,
+      padding:  EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+
       width: double.infinity,
       color: AppColors.primaryRed,
       child: Row(

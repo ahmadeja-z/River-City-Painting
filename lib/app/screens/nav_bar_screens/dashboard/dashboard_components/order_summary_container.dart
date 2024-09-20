@@ -6,7 +6,6 @@ import 'package:painting/app/resources/assets/app_fonts.dart';
 
 import '../../../../controllers/nav_screens_controller/dashboard_controller.dart';
 
-
 class OrderSummaryContainer extends StatefulWidget {
   const OrderSummaryContainer({super.key});
 
@@ -30,18 +29,18 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(15),
+      padding: EdgeInsets.all(Get.width * 0.04), // Responsive padding
       height: Get.height * 0.4,
-      width: Get.width * .9,
+      width: Get.width * 0.9,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: Colors.white,
-        boxShadow: const[
+        boxShadow: const [
           BoxShadow(
             color: Colors.black12,
             spreadRadius: 4,
             blurRadius: 6,
-            offset:  Offset(0, 3),
+            offset: Offset(0, 3),
           ),
         ],
       ),
@@ -55,25 +54,24 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
                 'Orders Summary',
                 style: TextStyle(
                   fontFamily: AppFonts.robotoRegular,
-                  fontSize:  Get.width * 0.04,
+                  fontSize: Get.width * 0.043, // Responsive font size
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              SizedBox(width: Get.width * 0.07),
+              SizedBox(width: Get.width * 0.04),
               TabBar(
-                labelStyle:  TextStyle(
-                  fontSize: Get.width*0.03,
+                labelStyle: TextStyle(
+                  fontSize: Get.width * 0.028, // Responsive tab text size
                   fontWeight: FontWeight.w500,
                   fontFamily: AppFonts.robotoRegular,
                 ),
                 controller: _tabController,
                 dividerHeight: 0,
-                labelPadding: const EdgeInsets.only(right: 5, left: 10),
+                labelPadding: EdgeInsets.only(right: Get.width * 0.02, left: Get.width * 0.02),
                 tabAlignment: TabAlignment.start,
                 labelColor: AppColors.primaryRed,
                 unselectedLabelColor: Colors.black54,
                 indicatorColor: AppColors.primaryRed,
-
                 indicatorWeight: 3.0,
                 isScrollable: true,
                 tabs: const [
@@ -84,15 +82,14 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
               ),
             ],
           ),
-          const Divider(height: 1,),
+          const Divider(height: 1),
           SizedBox(height: Get.height * 0.02),
-
-           Text(
+          Text(
             'Lorem ipsum dolor sit amet, consectetur',
             style: TextStyle(
-              fontSize: Get.width*0.035,
+              fontSize: Get.width * 0.032, // Responsive font size
               fontWeight: FontWeight.w400,
-              color: Color(0xFF2A2B43),
+              color: const Color(0xFF2A2B43),
               fontFamily: AppFonts.robotoRegular,
             ),
           ),
@@ -153,8 +150,8 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             CircularPercentIndicator(
-              radius: 60.0,
-              lineWidth: 16.0,
+              radius: Get.width * 0.15, // Responsive size for circular indicator
+              lineWidth: Get.width * 0.04, // Responsive line width
               percent: percent,
               animation: true,
               animationDuration: 1200,
@@ -162,7 +159,7 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
                 "${(percent * 100).toStringAsFixed(0)}%",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: Get.width * 0.05, // Example: 5% of screen width
+                  fontSize: Get.width * 0.05,
                   color: Colors.black,
                 ),
               ),
@@ -170,34 +167,33 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
               backgroundColor: Colors.grey.shade300,
               progressColor: AppColors.primaryRed,
               startAngle: 180.0,
-              arcType: ArcType.values[1],
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   '\$$amount',
-                  style: const TextStyle(
-                    fontSize: 20,
+                  style: TextStyle(
+                    fontSize: Get.width * 0.048, // Responsive text size
                     fontWeight: FontWeight.w700,
                     fontFamily: AppFonts.robotoRegular,
                   ),
                 ),
                 Text(
                   'from \$$subText',
-                  style: const TextStyle(
-                    fontSize: 13,
+                  style: TextStyle(
+                    fontSize: Get.width * 0.03,
                     color: Colors.grey,
                     fontWeight: FontWeight.w400,
                     fontFamily: AppFonts.robotoRegular,
                   ),
                 ),
                 SizedBox(height: Get.height * 0.007),
-                const Text(
+                Text(
                   'Lorem ipsum dolor sit amet,\n consectetur adipiscing elit, sed do',
                   style: TextStyle(
                     fontFamily: AppFonts.robotoRegular,
-                    fontSize: 10,
+                    fontSize: Get.width * 0.024,
                     fontWeight: FontWeight.w400,
                     color: Colors.grey,
                   ),
@@ -226,17 +222,16 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: Get.height * 0.04,
-        width: Get.width * 0.25,
+        padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05, vertical: Get.height * 0.01),
         decoration: BoxDecoration(
-          color: Colors.red.withOpacity(.2),
+          color: Colors.red.withOpacity(0.2),
           borderRadius: BorderRadius.circular(50),
         ),
         child: Center(
           child: Text(
             title,
-            style: const TextStyle(
-              fontSize: 15,
+            style: TextStyle(
+              fontSize: Get.width * 0.03,
               fontWeight: FontWeight.w500,
               fontFamily: 'Roboto',
               color: AppColors.primaryRed,
@@ -249,12 +244,10 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
 
   Widget _infoTile(int value, String status) {
     return Container(
-      padding: const EdgeInsets.all(5),
-      height: Get.height * 0.07,
-      width: Get.width * 0.25,
+      padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05, vertical: Get.width * 0.02),
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.grey.withOpacity(.6),
+          color: Colors.grey.withOpacity(0.6),
         ),
         borderRadius: BorderRadius.circular(15),
       ),
@@ -263,18 +256,18 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
           children: [
             Text(
               value.toString(),
-              style: const TextStyle(
+              style: TextStyle(
                 fontFamily: AppFonts.robotoRegular,
                 fontWeight: FontWeight.w700,
-                fontSize: 18,
+                fontSize: Get.width * 0.043,
               ),
             ),
             Text(
               status,
-              style: const TextStyle(
+              style: TextStyle(
                 fontFamily: AppFonts.robotoRegular,
                 fontWeight: FontWeight.w400,
-                fontSize: 12,
+                fontSize: Get.width * 0.03,
               ),
             ),
           ],

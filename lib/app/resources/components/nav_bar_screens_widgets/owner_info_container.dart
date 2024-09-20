@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:painting/app/resources/assets/app_fonts.dart';
 
+import '../../app_colors/app_colors.dart';
+
 class OwnerInfoContainer extends StatelessWidget {
   const OwnerInfoContainer(
       {super.key,
-        required this.name,
-        required this.number,
-        required this.email,
-        required this.infoTap,
-        required this.projectOwner});
+      required this.name,
+      required this.number,
+      required this.email,
+      required this.infoTap,
+      required this.projectOwner});
   final String name;
   final String projectOwner;
   final String number;
@@ -23,14 +25,13 @@ class OwnerInfoContainer extends StatelessWidget {
         fontWeight: FontWeight.w500,
         fontSize: 10);
     return Container(
-      padding: const EdgeInsets.all(10),
-      height: Get.height * 0.1,
-      width: Get.width * 0.9,
+      padding: EdgeInsets.symmetric(horizontal: Get.width*0.05,vertical: 20),
+margin: EdgeInsets.symmetric(horizontal: Get.width*0.05,vertical:Get.width*0.02 ),
       decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: const [
+          boxShadow:  [
             BoxShadow(
-                color: Colors.grey,
+                color: AppColors.greyishBlack.withOpacity(.3),
                 blurRadius: 2,
                 spreadRadius: 2,
                 offset: Offset(1, 3))
@@ -75,8 +76,7 @@ class OwnerInfoContainer extends StatelessWidget {
                     style: infoStyle,
                   ),
                   GestureDetector(
-                      onTap: infoTap,
-                      child: const Icon(Icons.arrow_drop_down))
+                      onTap: infoTap, child: const Icon(Icons.arrow_drop_down))
                 ],
               )
             ],

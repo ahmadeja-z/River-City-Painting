@@ -91,21 +91,24 @@ class ToDosControllerEstimates extends GetxController {
                 ],
               ),
               SizedBox(height: Get.height * 0.01),
-              Text('Add Note', style: fontStyle),
-              SizedBox(
-                height: Get.height * 0.1,
-                width: Get.width * 0.7,
-                child: TextField(
-                  style: TextStyle(
-                    fontSize: 11,
-                    fontFamily: AppFonts.poppinsRegular,
-                  ),
-                  controller: noteController.value,
-                  maxLines: 4,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(10),
-                    hintText: 'Add Note...',
-                    border: OutlineInputBorder(),
+              Text('Add Note:', style: fontStyle),
+              SingleChildScrollView(
+                child: Container(
+                  
+                  width: Get.width * 0.9,
+                  padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontFamily: AppFonts.poppinsRegular,
+                    ),
+                    controller: noteController.value,
+                    maxLines: 4,
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(10),
+                      hintText: 'Add Note...',
+                      border: OutlineInputBorder(),
+                    ),
                   ),
                 ),
               ),

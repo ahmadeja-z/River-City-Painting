@@ -177,7 +177,7 @@ class ExpensesControllerEstimates extends GetxController {
   Widget _customColumn(Widget first, Widget second) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start,
       children: [first, SizedBox(
-      width:     Get.width*0.28,
+      width:     Get.width*0.27,
           child: second)],
     );
   }

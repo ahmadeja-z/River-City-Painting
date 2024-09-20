@@ -13,9 +13,8 @@ class OrdersWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(15),
-      width: Get.width * 0.94,
-      height: Get.height * 0.27,
+      padding:  EdgeInsets.only(bottom: Get.width*0.15,top: Get.width*0.05,right: Get.width*0.03,left: Get.width*0.03),
+
       decoration: BoxDecoration(
         color: AppColors.primaryRed,
         borderRadius: BorderRadius.circular(12),

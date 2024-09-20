@@ -33,9 +33,10 @@ class DatePickerField extends StatelessWidget {
     return GestureDetector(
       onTap: () => _selectDate(context),
       child: AbsorbPointer(
-        child: SizedBox(
+        child: Container(
           width: Get.width*0.28,
-          height: Get.height*0.04,
+
+          padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
           child: TextField(
             style: TextStyle(fontFamily: AppFonts.interRegular,fontSize: 10),
             readOnly: true,

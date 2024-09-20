@@ -23,9 +23,9 @@ class NotesControllerEstimates extends GetxController {
           children: [
             Divider(),
             SizedBox(height: Get.height*0.01,),
-            SizedBox(
-              height: Get.height * 0.1,
+            Container(
               width: Get.width * 0.9,
+              padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
               child: TextField(
                 controller: noteController.value,
                 maxLines: 4,

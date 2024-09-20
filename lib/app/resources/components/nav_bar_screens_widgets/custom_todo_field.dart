@@ -22,9 +22,10 @@ class CustomToDoField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: Get.height * 0.04, // Adjust height responsively
-      width: Get.width * 0.9,   // Adjust width responsively
+    return Container(
+
+      width: Get.width * 0.9,
+      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
       child: TextField(
 
         style: TextStyle(

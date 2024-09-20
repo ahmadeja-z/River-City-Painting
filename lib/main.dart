@@ -24,11 +24,11 @@ import 'app/screens/nav_bar_screens/nav_bar_screen.dart';
 import 'app/controllers/nav_screens_controller/estimates_controllers/invoices_controller_info_estimates.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.white),
-  );
-  runApp(
-    MyApp(),
-  );
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+  runApp(DevicePreview(
+    enabled: !kReleaseMode,
+    builder: (context) => MyApp(),
+  ));
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -43,8 +43,8 @@ class MyApp extends StatelessWidget {
       ),
 locale:const Locale('en','US') ,
 translations: Languages(),
-// home: EmailsInfoEstimatesView ()
-      getPages: AppRoutes.appRoute(),
+home: NavBarScreen ()
+//       getPages: AppRoutes.appRoute(),
     );
 
   }

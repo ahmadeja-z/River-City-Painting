@@ -21,11 +21,11 @@ class CustomIconButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: Get.height * 0.045, // Adjusted to be more responsive
-        width: Get.width * 0.3,   // Adjusted to be more responsive
+        width: Get.width*0.3,
+       padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 1 ),
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(Get.width * 0.02), // Responsive border radius
+          borderRadius: BorderRadius.circular(Get.width * 0.01), // Responsive border radius
         ),
         child: Center(
           child: Text(

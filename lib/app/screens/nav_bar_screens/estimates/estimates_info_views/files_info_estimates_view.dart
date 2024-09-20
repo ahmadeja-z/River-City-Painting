@@ -10,8 +10,8 @@ import 'package:painting/app/resources/components/nav_bar_screens_widgets/estima
 
 import '../../../../controllers/nav_screens_controller/estimates_controllers/files_controller_info_estimates.dart';
 
-class FilesTabsInfoEstimates extends StatelessWidget {
-  FilesTabsInfoEstimates({super.key});
+class FilesInfoEstimates extends StatelessWidget {
+  FilesInfoEstimates({super.key});
 
   @override
   Widget build(BuildContext context) {

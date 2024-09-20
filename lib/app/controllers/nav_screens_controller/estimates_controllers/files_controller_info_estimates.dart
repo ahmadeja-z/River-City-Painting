@@ -43,8 +43,6 @@ class FilesControllerEstimates extends GetxController {
             Divider(),
             SizedBox(height: Get.height*0.01,),
             Container(
-              width: Get.width * 0.8, // Responsive width
-              height: Get.height * 0.05, // Responsive height
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(
                     Get.width * 0.02), // Responsive border radius
@@ -59,8 +57,7 @@ class FilesControllerEstimates extends GetxController {
                         pickFile();
                       },
                       child: Container(
-                        height: Get.height * 0.06, // Responsive height
-                        width: Get.width * 0.25, // Responsive width
+                    padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                         decoration: BoxDecoration(
                           color: AppColors.primaryRed,
                           borderRadius: BorderRadius.only(
