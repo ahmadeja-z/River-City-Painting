@@ -29,9 +29,10 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(Get.width * 0.04), // Responsive padding
-      height: Get.height * 0.4,
-      width: Get.width * 0.9,
+      padding: EdgeInsets.all(20),
+
+      width: Get.width*0.9,
+
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: Colors.white,
@@ -45,16 +46,17 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
         ],
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
+
             children: [
               Text(
                 'Orders Summary',
                 style: TextStyle(
                   fontFamily: AppFonts.robotoRegular,
-                  fontSize: Get.width * 0.043, // Responsive font size
+                  fontSize: Get.width * 0.035, // Responsive font size
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -149,24 +151,27 @@ class _OrderSummaryContainerState extends State<OrderSummaryContainer> with Sing
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            CircularPercentIndicator(
-              radius: Get.width * 0.15, // Responsive size for circular indicator
-              lineWidth: Get.width * 0.04, // Responsive line width
-              percent: percent,
-              animation: true,
-              animationDuration: 1200,
-              center: Text(
-                "${(percent * 100).toStringAsFixed(0)}%",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: Get.width * 0.05,
-                  color: Colors.black,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircularPercentIndicator(
+                radius: Get.width * 0.15, // Responsive size for circular indicator
+                lineWidth: Get.width * 0.04, // Responsive line width
+                percent: percent,
+                animation: true,
+                animationDuration: 1200,
+                center: Text(
+                  "${(percent * 100).toStringAsFixed(0)}%",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: Get.width * 0.05,
+                    color: Colors.black,
+                  ),
                 ),
+                circularStrokeCap: CircularStrokeCap.round,
+                backgroundColor: Colors.grey.shade300,
+                progressColor: AppColors.primaryRed,
+                startAngle: 180.0,
               ),
-              circularStrokeCap: CircularStrokeCap.round,
-              backgroundColor: Colors.grey.shade300,
-              progressColor: AppColors.primaryRed,
-              startAngle: 180.0,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,

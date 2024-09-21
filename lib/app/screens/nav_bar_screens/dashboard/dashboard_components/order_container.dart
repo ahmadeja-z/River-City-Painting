@@ -14,15 +14,15 @@ class OrdersWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding:  EdgeInsets.only(bottom: Get.width*0.15,top: Get.width*0.05,right: Get.width*0.03,left: Get.width*0.03),
-
+margin: EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: AppColors.primaryRed,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
+          Row(crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
@@ -95,10 +95,10 @@ class OrdersWidget extends StatelessWidget {
                   child: Center(
                     child: Text(
                       '${(controller.completePercent * 100).toStringAsFixed(0)}%',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 22.0,
-                        color: Color(0xFF38CC66), // Green color
+                        fontSize: Get.width*.03,
+                        color: const Color(0xFF38CC66), // Green color
                       ),
                     ),
                   ),
@@ -145,10 +145,10 @@ class OrdersWidget extends StatelessWidget {
         const SizedBox(width: 8),
         Text(
           text,
-          style: const TextStyle(
+          style:  TextStyle(
             fontFamily: AppFonts.poppinsRegular,
             color: Colors.white,
-            fontSize: 14,
+            fontSize: Get.width*0.02,
             fontWeight: FontWeight.w500,
           ),
         ),

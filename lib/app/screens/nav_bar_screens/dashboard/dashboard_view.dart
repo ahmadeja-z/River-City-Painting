@@ -59,7 +59,15 @@ class DashboardView extends StatelessWidget {
               SizedBox(
                 height: Get.height * 0.02,
               ),
-              const OrderSummaryContainer(),
+              Container(
+
+                height: Get.height < 800
+                    ? Get.height*1.5
+                    : Get.width * 0.9, // For smaller screens
+
+                child: const OrderSummaryContainer(),
+              ),
+
               SizedBox(
                 height: Get.height * 0.02,
               ),
@@ -73,7 +81,7 @@ class DashboardView extends StatelessWidget {
               ),
              Container(
                padding: const EdgeInsets.all(15),
-               height: Get.height * 0.5,
+               height: Get.height * 0.8,
                width: Get.width * 0.94,
                decoration: BoxDecoration(
                  borderRadius: BorderRadius.circular(12),
